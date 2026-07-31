@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fengoo.in - Finance Blog</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#333;
+}
+
+/* Header */
+header{
+background:#0B5ED7;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:600;
+}
+
+.language-btn{
+background:white;
+color:#0B5ED7;
+border:none;
+padding:8px 15px;
+border-radius:5px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(135deg,#0B5ED7,#198754);
+color:white;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+margin-bottom:30px;
+}
+
+.hero button{
+padding:15px 30px;
+border:none;
+background:white;
+color:#0B5ED7;
+font-size:18px;
+font-weight:bold;
+border-radius:6px;
+cursor:pointer;
+}
+<!-- Dashboard Section -->
+<section class="dashboard">
+
+    <h2>Finance Dashboard</h2>
+
+    <div class="dashboard-grid">
+
+        <div class="dash-card">
+            <h3>50+</h3>
+            <p>Finance Articles</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>10+</h3>
+            <p>Smart Calculators</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>100%</h3>
+            <p>Free Resources</p>
+        </div>
+
+        <div class="dash-card">
+            <h3>24/7</h3>
+            <p>Online Access</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Calculators Section -->
+<section class="calculators">
+
+    <h2>Finance Calculators</h2>
+
+    <div class="calculator-grid">
+
+        <a href="tools/emi-calculator.html" class="calculator-card">
+            <h3>EMI Calculator</h3>
+            <p>Calculate Monthly Loan EMI</p>
+        </a>
+
+        <a href="tools/sip-calculator.html" class="calculator-card">
+            <h3>SIP Calculator</h3>
+            <p>Estimate SIP Returns</p>
+        </a>
+
+        <a href="tools/fd-calculator.html" class="calculator-card">
+            <h3>FD Calculator</h3>
+            <p>Fixed Deposit Returns</p>
+        </a>
+
+        <a href="tools/rd-calculator.html" class="calculator-card">
+            <h3>RD Calculator</h3>
+            <p>Recurring Deposit Maturity</p>
+        </a>
+
+        <a href="tools/tax-calculator.html" class="calculator-card">
+            <h3>Tax Calculator</h3>
+            <p>Income Tax Estimator</p>
+        </a>
+
+        <a href="tools/home-loan-calculator.html" class="calculator-card">
+            <h3>Home Loan Calculator</h3>
+            <p>Home Loan EMI & Interest</p>
+        </a>
+
+        <a href="tools/car-loan-calculator.html" class="calculator-card">
+            <h3>Car Loan Calculator</h3>
+            <p>Vehicle Loan EMI</p>
+        </a>
+
+        <a href="tools/compound-interest.html" class="calculator-card">
+            <h3>Compound Interest</h3>
+            <p>Growth of Investments</p>
+        </a>
+
+    </div>
+
+</section>
+/* Categories */
+.categories{
+padding:60px 5%;
+}
+
+.categories h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+/* Footer */
+footer{
+background:#212529;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:50px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">Fengoo.in</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Blogs</a>
+<a href="#">Calculators</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
+
+<button class="language-btn" onclick="changeLanguage()">
+हिन्दी
+</button>
+</header>
+
+<section class="hero">
+<h1 id="title">Smart Finance Starts Here</h1>
+
+<p id="desc">
+Learn investing, loans, insurance, banking and personal finance with easy guides.
+</p>
+
+<button id="btn">Explore Blogs</button>
+</section>
+
+<section class="categories">
+<h2 id="catTitle">Popular Categories</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Personal Finance</h3>
+<p>Money management tips.</p>
+</div>
+
+<div class="card">
+<h3>Investing</h3>
+<p>Stocks, SIP & Mutual Funds.</p>
+</div>
+
+<div class="card">
+<h3>Loans</h3>
+<p>Home, Car & Personal Loans.</p>
+</div>
+
+<div class="card">
+<h3>Insurance</h3>
+<p>Life & Health Insurance Guides.</p>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Fengoo.in | All Rights Reserved
+</footer>
+
+<script>
+let hindi=false;
+
+function changeLanguage(){
+
+if(!hindi){
+
+document.getElementById("title").innerHTML="स्मार्ट फाइनेंस की शुरुआत यहाँ से";
+document.getElementById("desc").innerHTML="निवेश, लोन, बीमा, बैंकिंग और पर्सनल फाइनेंस की आसान जानकारी प्राप्त करें।";
+document.getElementById("btn").innerHTML="ब्लॉग पढ़ें";
+document.getElementById("catTitle").innerHTML="लोकप्रिय श्रेणियाँ";
+
+document.querySelector(".language-btn").innerHTML="English";
+
+hindi=true;
+
+}else{
+
+document.getElementById("title").innerHTML="Smart Finance Starts Here";
+document.getElementById("desc").innerHTML="Learn investing, loans, insurance, banking and personal finance with easy guides.";
+document.getElementById("btn").innerHTML="Explore Blogs";
+document.getElementById("catTitle").innerHTML="Popular Categories";
+
+document.querySelector(".language-btn").innerHTML="हिन्दी";
+
+hindi=false;
+}
+}
+</script>
+
+</body>
+</html>
