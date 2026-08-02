@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fengoo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
 
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="About Us" data-hi="हमारे बारे में">हमारे बारे में</h1>
+            <p data-en="Welcome to Fengoo.in - Your trusted platform for smart financial tools and calculators." data-hi="Fengoo.in में आपका स्वागत है - स्मार्ट वित्तीय उपकरणों और कैलकुलेटर के लिए आपका विश्वसनीय प्लेटफॉर्म।">Fengoo.in में आपका स्वागत है - स्मार्ट वित्तीय उपकरणों और कैलकुलेटर के लिए आपका विश्वसनीय प्लेटफॉर्म।</p>
+        </section>
+
+        <!-- Content Card -->
+        <div class="dash-card" style="line-height: 1.8; color: #94a3b8;">
+            <p data-en="Fengoo is designed to simplify complex financial calculations, loan comparisons, insurance planning, and banking insights for everyone. Our goal is to empower users with fast, accurate, and free digital tools to make better financial decisions." data-hi="Fengoo को सभी के लिए जटिल वित्तीय गणनाओं, लोन तुलना, बीमा योजना और बैंकिंग अंतर्दृष्टि को सरल बनाने के लिए डिज़ाइन किया गया है। हमारा लक्ष्य बेहतर वित्तीय निर्णय लेने के लिए उपयोगकर्ताओं को तेज़, सटीक और मुफ्त डिजिटल टूल से सशक्त बनाना है।">Fengoo को सभी के लिए जटिल वित्तीय गणनाओं, लोन तुलना, बीमा योजना और बैंकिंग अंतर्दृष्टि को सरल बनाने के लिए डिज़ाइन किया गया है। हमारा लक्ष्य बेहतर वित्तीय निर्णय लेने के लिए उपयोगकर्ताओं को तेज़, सटीक और मुफ्त डिजिटल टूल से सशक्त बनाना है।</p>
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts Linking -->
+    <script src="js/script.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html>
