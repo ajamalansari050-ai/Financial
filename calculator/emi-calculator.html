@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        .calc-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .calc-btn {
+            width: 100%;
+            padding: 12px;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .calc-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 8px;
+            color: #38bdf8;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card" style="text-align: center;">
+            <h1 data-en="EMI Calculator" data-hi="ईएमआई कैलकुलेटर">ईएमआई कैलकुलेटर</h1>
+            <p data-en="Calculate your monthly loan payments easily." data-hi="आसानी से अपनी मासिक लोन किस्त की गणना करें।">आसानी से अपनी मासिक लोन किस्त की गणना करें।</p>
+        </section>
+
+        <!-- EMI Tool Box -->
+        <div class="calc-container">
+            <div class="input-group">
+                <label data-en="Loan Amount (₹)" data-hi="लोन राशि (₹)">लोन राशि (₹)</label>
+                <input type="number" id="emiLoan" value="500000">
+            </div>
+            <div class="input-group">
+                <label data-en="Interest Rate (% P.A.)" data-hi="ब्याज दर (% वार्षिक)">ब्याज दर (% वार्षिक)</label>
+                <input type="number" id="emiRate" value="8.5">
+            </div>
+            <div class="input-group">
+                <label data-en="Loan Tenure (Months)" data-hi="लोन अवधि (महीने)">लोन अवधि (महीने)</label>
+                <input type="number" id="emiTenure" value="60">
+            </div>
+            
+            <button class="calc-btn" onclick="calculateAndShowEMI()" data-en="Calculate EMI" data-hi="EMI की गणना करें">EMI की गणना करें</button>
+            
+            <div class="calc-result" id="emiResult">मासिक EMI: ₹0</div>
+        </div>
+
+        <!-- Back to Calculator Hub -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Calculators" data-hi="← कैलकुलेटर हब पर वापस जाएं">← कैलकुलेटर हब पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts Linking -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+    <script src="../js/emi.js"></script>
+    <script>
+        function calculateAndShowEMI() {
+            let p = parseFloat(document.getElementById('emiLoan').value);
+            let r = parseFloat(document.getElementById('emiRate').value);
+            let n = parseInt(document.getElementById('emiTenure').value);
+            
+            let res = calculateEMI(p, r, n);
+            document.getElementById('emiResult').innerText = (currentLang === 'hi' ? 'मासिक EMI: ₹' : 'Monthly EMI: ₹') + res;
+        }
+    </script>
+</body>
+</html>
