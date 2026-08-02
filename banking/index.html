@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Hub - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="Banking Information Hub" data-hi="बैंकिंग जानकारी हब">बैंकिंग जानकारी हब</h1>
+            <p data-en="Explore savings accounts, current accounts, and fixed deposits." data-hi="बचत खाते, चालू खाते और सावधि जमा (FD) के बारे में जानें।">बचत खाते, चालू खाते और सावधि जमा (FD) के बारे में जानें।</p>
+        </section>
+
+        <!-- Banking Categories Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Savings Account -->
+            <div class="dash-card">
+                <div class="card-icon">💰</div>
+                <h3 data-en="Savings Account" data-hi="सेविंग्स अकाउंट">सेविंग्स अकाउंट</h3>
+                <p data-en="Grow your daily savings with attractive interest rates." data-hi="आकर्षक ब्याज दरों के साथ अपनी दैनिक बचत को बढ़ाएं।">आकर्षक ब्याज दरों के साथ अपनी दैनिक बचत को बढ़ाएं।</p>
+                <a href="savings-account.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Current Account -->
+            <div class="dash-card">
+                <div class="card-icon">📈</div>
+                <h3 data-en="Current Account" data-hi="करंट अकाउंट">करंट अकाउंट</h3>
+                <p data-en="Tailored for business transactions with high transaction limits." data-hi="उच्च लेनदेन सीमा के साथ व्यावसायिक लेनदेन के लिए अनुकूलित।">उच्च लेनदेन सीमा के साथ व्यावसायिक लेनदेन के लिए अनुकूलित।</p>
+                <a href="current-account.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Fixed Deposit -->
+            <div class="dash-card">
+                <div class="card-icon">🔒</div>
+                <h3 data-en="Fixed Deposit" data-hi="फिक्स्ड डिपॉजिट (FD)">फिक्स्ड डिपॉजिट (FD)</h3>
+                <p data-en="Secure your money with guaranteed returns over a fixed tenure." data-hi="एक निश्चित अवधि में गारंटीड रिटर्न के साथ अपने पैसे को सुरक्षित रखें।">एक निश्चित अवधि में गारंटीड रिटर्न के साथ अपने पैसे को सुरक्षित रखें।</p>
+                <a href="fixed-deposit.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+  </html>
+
