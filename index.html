@@ -17,9 +17,8 @@
             </a>
         </div>
         
-        <div class="lang-switcher-container" style="display: flex; gap: 10px; align-items: center;">
-    <!-- भाषा चुनने के लिए नया ड्रॉपडाउन (भारत की मुख्य भाषाएँ) -->
-    <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 10px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.85rem;">
+        <div class="lang-switcher-container">
+    <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
         <option value="hi">हिंदी</option>
         <option value="en">English</option>
         <option value="bn">বাংলা</option>
@@ -28,9 +27,6 @@
         <option value="ta">தமிழ்</option>
         <option value="te">తెలుగు</option>
     </select>
-    <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()" style="background: #38bdf8; border: none; padding: 6px 12px; border-radius: 20px; color: #0f172a; font-weight: bold; cursor: pointer;">
-        <span id="langText">ENG</span>
-    </button>
         </div>
         
     </header>
