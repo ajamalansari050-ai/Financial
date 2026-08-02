@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Hub - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
 
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="Investment Information Hub" data-hi="निवेश जानकारी हब">निवेश जानकारी हब</h1>
+            <p data-en="Grow your wealth by exploring mutual funds, stocks, gold, and crypto." data-hi="म्यूचुअल फंड, शेयर बाजार, सोना और क्रिप्टो का पता लगाकर अपनी संपत्ति बढ़ाएं।">म्यूचुअल फंड, शेयर बाजार, सोना और क्रिप्टो का पता लगाकर अपनी संपत्ति बढ़ाएं।</p>
+        </section>
+
+        <!-- Investment Categories Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Mutual Funds -->
+            <div class="dash-card">
+                <div class="card-icon">📊</div>
+                <h3 data-en="Mutual Funds" data-hi="म्यूचुअल फंड">म्यूचुअल फंड</h3>
+                <p data-en="Professional management for diversified and long-term wealth growth." data-hi="विविध और दीर्घकालिक संपत्ति वृद्धि के लिए पेशेवर प्रबंधन।">विविध और दीर्घकालिक संपत्ति वृद्धि के लिए पेशेवर प्रबंधन।</p>
+                <a href="mutual-fund.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Stocks -->
+            <div class="dash-card">
+                <div class="card-icon">📈</div>
+                <h3 data-en="Stocks & Equities" data-hi="स्टॉक्स और शेयर">स्टॉक्स और शेयर</h3>
+                <p data-en="Invest directly in top-performing companies and public markets." data-hi="शीर्ष प्रदर्शन करने वाली कंपनियों और सार्वजनिक बाजारों में सीधे निवेश करें।">शीर्ष प्रदर्शन करने वाली कंपनियों और सार्वजनिक बाजारों में सीधे निवेश करें।</p>
+                <a href="stocks.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Gold -->
+            <div class="dash-card">
+                <div class="card-icon">🪙</div>
+                <h3 data-en="Gold Investment" data-hi="गोल्ड (सोना) निवेश">गोल्ड (सोना) निवेश</h3>
+                <p data-en="Hedge against inflation with traditional and digital gold assets." data-hi="पारंपरिक और डिजिटल स्वर्ण परिसंपत्तियों के साथ मुद्रास्फीति से बचाव करें।">पारंपरिक और डिजिटल स्वर्ण परिसंपत्तियों के साथ मुद्रास्फीति से बचाव करें।</p>
+                <a href="gold.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Crypto -->
+            <div class="dash-card">
+                <div class="card-icon">⚡</div>
+                <h3 data-en="Cryptocurrency" data-hi="क्रिप्टोकरेंसी">क्रिप्टोकरेंसी</h3>
+                <p data-en="Explore decentralized digital assets and blockchain technology." data-hi="विकेंद्रीकृत डिजिटल परिसंपत्तियों और ब्लॉकचेन तकनीक का अन्वेषण करें।">विकेंद्रीकृत डिजिटल परिसंपत्तियों और ब्लॉकचेन तकनीक का अन्वेषण करें।</p>
+                <a href="crypto.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+          </html>
+
+  
