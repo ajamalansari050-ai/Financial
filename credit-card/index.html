@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Hub - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="Credit Card Information Hub" data-hi="क्रेडिट कार्ड जानकारी हब">क्रेडिट कार्ड जानकारी हब</h1>
+            <p data-en="Explore the best credit cards, rewards, and application guides." data-hi="सर्वोत्तम क्रेडिट कार्ड, रिवार्ड्स और आवेदन गाइड के बारे में जानें।">सर्वोत्तम क्रेडिट कार्ड, रिवार्ड्स और आवेदन गाइड के बारे में जानें।</p>
+        </section>
+
+        <!-- Credit Card Categories Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Best Credit Cards -->
+            <div class="dash-card">
+                <div class="card-icon">💳</div>
+                <h3 data-en="Best Credit Cards" data-hi="सर्वोत्तम क्रेडिट कार्ड">सर्वोत्तम क्रेडिट कार्ड</h3>
+                <p data-en="Compare top cards for shopping, travel, cashback, and fuel." data-hi="शॉपिंग, यात्रा, कैशबैक और ईंधन के लिए शीर्ष कार्डों की तुलना करें।">शॉपिंग, यात्रा, कैशबैक और ईंधन के लिए शीर्ष कार्डों की तुलना करें।</p>
+                <a href="best-credit-cards.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Apply Credit Card -->
+            <div class="dash-card">
+                <div class="card-icon">📝</div>
+                <h3 data-en="Apply Credit Card" data-hi="क्रेडिट कार्ड के लिए आवेदन करें">क्रेडिट कार्ड के लिए आवेदन करें</h3>
+                <p data-en="Check eligibility criteria and apply online smoothly." data-hi="पात्रता मानदंड की जांच करें और आसानी से ऑनलाइन आवेदन करें।">पात्रता मानदंड की जांच करें और आसानी से ऑनलाइन आवेदन करें।</p>
+                <a href="apply-credit-card.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+</html>
