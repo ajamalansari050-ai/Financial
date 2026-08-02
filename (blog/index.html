@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Blog & Articles - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="hero-card">
+            <h1 data-en="Finance Blog & Expert Tips" data-hi="फाइनेंस ब्लॉग और विशेषज्ञ सलाह">फाइनेंस ब्लॉग और विशेषज्ञ सलाह</h1>
+            <p data-en="Read expert articles on smart money saving, investments, and financial growth." data-hi="पैसे की बचत, निवेश और वित्तीय वृद्धि पर विशेषज्ञों के लेख पढ़ें।">पैसे की बचत, निवेश और वित्तीय वृद्धि पर विशेषज्ञों के लेख पढ़ें।</p>
+        </section>
+
+        <!-- Blog Posts Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
+            
+            <!-- Blog Card 1 -->
+            <div class="dash-card">
+                <h3 style="color: #fff; margin-bottom: 10px;" data-en="How to Save Money Effectively" data-hi="पैसों की बचत कैसे करें: असरदार तरीके">पैसों की बचत कैसे करें: असरदार तरीके</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;" data-en="Learn the best budgeting rules to secure your future and manage monthly expenses." data-hi="अपने भविष्य को सुरक्षित करने और मासिक खर्चों को प्रबंधित करने के बेहतरीन नियम जानें।">अपने भविष्य को सुरक्षित करने और मासिक खर्चों को प्रबंधित करने के बेहतरीन नियम जानें।</p>
+                <a href="how-to-save-money.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read Article" data-hi="पूरा पढ़ें">पूरा पढ़ें</a>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="dash-card">
+                <h3 style="color: #fff; margin-bottom: 10px;" data-en="Smart Investment for Beginners" data-hi="शुरुआती लोगों के लिए स्मार्ट निवेश">शुरुआती लोगों के लिए स्मार्ट निवेश</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;" data-en="A complete guide to mutual funds, SIP, and stock market investments for high returns." data-hi="बेहतर रिटर्न के लिए म्यूचुअल फंड, SIP और शेयर बाजार निवेश की पूरी गाइड।">बेहतर रिटर्न के लिए म्यूचुअल फंड, SIP और शेयर बाजार निवेश की पूरी गाइड।</p>
+                <a href="smart-investment-guide.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read Article" data-hi="पूरा पढ़ें">पूरा पढ़ें</a>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="dash-card">
+                <h3 style="color: #fff; margin-bottom: 10px;" data-en="Understanding Tax Saving Options" data-hi="टैक्स बचाने के असरदार विकल्प समझें">टैक्स बचाने के असरदार विकल्प समझें</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;" data-en="Explore legal ways to save your hard-earned money using PPF, ELSS, and Tax Slabs." data-hi="PPF, ELSS और टैक्स स्लैब का उपयोग करके अपनी मेहनत की कमाई बचाने के कानूनी तरीके जानें।">PPF, ELSS और टैक्स स्लैब का उपयोग करके अपनी मेहनत की कमाई बचाने के कानूनी तरीके जानें।</p>
+                <a href="tax-saving-tips.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read Article" data-hi="पूरा पढ़ें">पूरा पढ़ें</a>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Home" data-hi="← होमपेज पर वापस जाएं">← होमपेज पर वापस जाएं</a>
+        </div>
+    </main>
+
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+  </html>
+
