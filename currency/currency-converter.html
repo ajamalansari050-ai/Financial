@@ -77,7 +77,7 @@
         <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
     </footer>
 
-    <!-- 197+ Countries Live API Script -->
+        <!-- Official & Real Live API Script (No Random/Fake Fluctuation) -->
     <script>
         const countryList = {
             "USD": "United States - US Dollar ($)",
@@ -163,7 +163,8 @@
             toSelect.value = "INR";
         }
 
-        async function fetchLiveRates() {
+        // केवल वास्तविक इंटरनेट एपीआई से ऑफिशियल रेट्स लाना
+        async function fetchRealMarketRates() {
             try {
                 let response = await fetch('https://open.er-api.com/v6/latest/USD');
                 let data = await response.json();
@@ -172,7 +173,7 @@
                     convertGlobalCurrency();
                 }
             } catch (error) {
-                console.log("Live rate fetch error, using defaults.");
+                console.log("Real market rate connection error.");
             }
         }
 
@@ -192,8 +193,9 @@
 
         window.onload = function() {
             populateDropdowns();
-            fetchLiveRates();
-        };
+            fetchRealMarketRates();
+        }
+    
     </script>
     
     <script src="../js/script.js"></script>
