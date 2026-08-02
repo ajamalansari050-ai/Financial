@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Hub - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
 
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="Loan Information Hub" data-hi="लोन जानकारी हब">लोन जानकारी हब</h1>
+            <p data-en="Explore different types of loans, eligibility, and interest rates." data-hi="विभिन्न प्रकार के लोन, पात्रता और ब्याज दरों के बारे में जानें।">विभिन्न प्रकार के लोन, पात्रता और ब्याज दरों के बारे में जानें।</p>
+        </section>
+
+        <!-- Loan Categories Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Personal Loan -->
+            <div class="dash-card">
+                <div class="card-icon">💳</div>
+                <h3 data-en="Personal Loan" data-hi="पर्सनल लोन">पर्सनल लोन</h3>
+                <p data-en="Instant funds for personal needs with minimal documentation." data-hi="न्यूनतम दस्तावेजों के साथ व्यक्तिगत आवश्यकताओं के लिए त्वरित फंड।">न्यूनतम दस्तावेजों के साथ व्यक्तिगत आवश्यकताओं के लिए त्वरित फंड।</p>
+                <a href="personal-loan.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Home Loan -->
+            <div class="dash-card">
+                <div class="card-icon">🏠</div>
+                <h3 data-en="Home Loan" data-hi="होम लोन">होम लोन</h3>
+                <p data-en="Build or buy your dream house with low interest rates." data-hi="कम ब्याज दरों के साथ अपने सपनों का घर बनाएं या खरीदें।">कम ब्याज दरों के साथ अपने सपनों का घर बनाएं या खरीदें।</p>
+                <a href="home-loan.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Car Loan -->
+            <div class="dash-card">
+                <div class="card-icon">🚗</div>
+                <h3 data-en="Car Loan" data-hi="कार लोन">कार लोन</h3>
+                <p data-en="Drive your dream car with easy auto financing options." data-hi="आसान ऑटो फाइनेंसिंग विकल्पों के साथ अपनी सपनों की कार चलाएं।">आसान ऑटो फाइनेंसिंग विकल्पों के साथ अपनी सपनों की कार चलाएं।</p>
+                <a href="car-loan.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Education Loan -->
+            <div class="dash-card">
+                <div class="card-icon">🎓</div>
+                <h3 data-en="Education Loan" data-hi="एजुकेशन लोन">एजुकेशन लोन</h3>
+                <p data-en="Fund your higher education locally or globally." data-hi="स्थानीय या वैश्विक स्तर पर अपनी उच्च शिक्षा के लिए फंड प्राप्त करें।">स्थानीय या वैश्विक स्तर पर अपनी उच्च शिक्षा के लिए फंड प्राप्त करें।</p>
+                <a href="education-loan.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+</html>
