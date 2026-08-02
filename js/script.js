@@ -54,23 +54,56 @@ document.addEventListener("DOMContentLoaded", function() {
 
     container.innerHTML = htmlOutput;
 });
-// Real BSE SENSEX Closing Data from Official Source
-function setRealMarketData() {
+// Real Live Market Data Fetching Script from Public API
+async function fetchRealLiveMarketData() {
     const priceElement = document.getElementById('bse-price');
     const changeElement = document.getElementById('bse-change');
     const tickerItem = document.getElementById('bse-ticker');
 
-    if (priceElement && changeElement) {
-        // स्क्रीनशॉट के अनुसार वास्तविक और सटीक बाजार भाव
-        priceElement.innerText = '₹78,094.64'; 
-        changeElement.innerText = '(+0.21% ▲)';
-        changeElement.style.color = '#4ade80'; // हरे रंग में सटीक बढ़त
+    try {
+        // असली लाइव डेटा प्राप्त करने के लिए पब्लिक फाइनेंशियल एपीआई का उपयोग
+        // (यह उदाहरण Yahoo Finance / Global Financial APIs के डेटा स्ट्रक्चर पर आधारित है)
+        let response = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EBSESN?interval=1m');
+        let data = await response.json();
         
-        if (tickerItem) {
-            tickerItem.className = 'ticker-item green';
+        let meta = data.chart.result[0].meta;
+        let currentPrice = meta.regularMarketPrice;
+        let previousClose = meta.chartPreviousClose || meta.previousClose;
+        
+        // बदलाव और प्रतिशत निकालना
+        let change = currentPrice - previousClose;
+        let percentChange = ((change / previousClose) * 100).toFixed(2);
+        
+        if (priceElement && changeElement) {
+            priceElement.innerText = '₹' + Number(currentPrice).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            
+            let formattedPercent = (change >= 0 ? "+" : "") + percentChange + "%";
+            
+            if (change >= 0) {
+                changeElement.innerText = `(${formattedPercent} ▲)`;
+                changeElement.style.color = '#4ade80'; // हरा रंग
+                if(tickerItem) tickerItem.className = 'ticker-item green';
+            } else {
+                changeElement.innerText = `(${formattedPercent} ▼)`;
+                changeElement.style.color = '#f87171'; // लाल रंग
+                if(tickerItem) tickerItem.className = 'ticker-item red';
+            }
+        }
+    } catch (error) {
+        console.error('Live market data fetch error, using official closing fallback:', error);
+        
+        // यदि इंटरनेट या एपीआई से कनेक्ट करने में कोई दिक्कत आए, तो आधिकारिक बंद भाव दिखेगा
+        if (priceElement && changeElement) {
+            priceElement.innerText = '₹78,094.64';
+            changeElement.innerText = '(+0.21% ▲)';
+            changeElement.style.color = '#4ade80';
+            if(tickerItem) tickerItem.className = 'ticker-item green';
         }
     }
 }
 
-// पेज लोड होते ही यह असली भाव सेट कर देगा
-window.onload = setRealMarketData;
+// पेज लोड होते ही लाइव डेटा फेच करेगा
+fetchRealLiveMarketData();
+
+// हर 60 सेकंड (1 मिनट) में असली मार्केट डेटा ऑटोमैटिक अपडेट होता रहेगा
+setInterval(fetchRealLiveMarketData, 60000);
