@@ -151,22 +151,3 @@ body {
 .footer-links a:hover {
     color: #38bdf8;
 }
-/* इनपुट बॉक्स और ड्रॉपडाउन को सुधारने के लिए */
-input[type="date"], 
-input[type="text"], 
-input[type="email"], 
-input[type="number"], 
-textarea,
-select {
-    background-color: #0f172a !important;
-    color: #ffffff !important;
-    border: 1px solid #475569 !important;
-    color-scheme: dark; /* मोबाइल में कैलेंडर आइकॉन को साफ दिखाने के लिए */
-}
-
-/* फोकस होने पर बॉर्डर चमकीली नीली हो */
-input:focus, textarea:focus, select:focus {
-    border-color: #38bdf8 !important;
-    outline: none !important;
-}
-
