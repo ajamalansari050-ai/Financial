@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD Calculator - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        .calc-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .calc-btn {
+            width: 100%;
+            padding: 12px;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .calc-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 8px;
+            color: #38bdf8;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card" style="text-align: center;">
+            <h1 data-en="Recurring Deposit Calculator" data-hi="आरडी (RD) कैलकुलेटर">आरडी (RD) कैलकुलेटर</h1>
+            <p data-en="Calculate maturity amount for your recurring deposits." data-hi="अपनी रिकरिंग डिपॉजिट (RD) के लिए मेच्योरिटी राशि की गणना करें।">अपनी रिकरिंग डिपॉजिट (RD) के लिए मेच्योरिटी राशि की गणना करें।</p>
+        </section>
+
+        <!-- RD Tool Box -->
+        <div class="calc-container">
+            <div class="input-group">
+                <label data-en="Monthly Deposit (₹)" data-hi="मासिक जमा राशि (₹)">मासिक जमा राशि (₹)</label>
+                <input type="number" id="rdAmount" value="2000">
+            </div>
+            <div class="input-group">
+                <label data-en="Annual Interest Rate (%)" data-hi="वार्षिक ब्याज दर (%)">वार्षिक ब्याज दर (%)</label>
+                <input type="number" id="rdRate" value="6.5">
+            </div>
+            <div class="input-group">
+                <label data-en="Time Period (Months)" data-hi="समय अवधि (महीने)">समय अवधि (महीने)</label>
+                <input type="number" id="rdMonths" value="12">
+            </div>
+            
+            <button class="calc-btn" onclick="calculateAndShowRD()" data-en="Calculate RD" data-hi="RD की गणना करें">RD की गणना करें</button>
+            
+            <div class="calc-result" id="rdResult">मेच्योरिटी राशि: ₹0</div>
+        </div>
+
+        <!-- Back to Calculator Hub -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Calculators" data-hi="← कैलकुलेटर हब पर वापस जाएं">← कैलकुलेटर हब पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts Linking -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+    <script>
+        function calculateRD(p, annualRate, months) {
+            let r = annualRate / (12 * 100);
+            let maturity = 0;
+            for(let i = 0; i < months; i++) {
+                let n = (months - i) / 12;
+                maturity += p * (1 + r * (months - i)); // Simplified RD formula approximation
+            }
+            // Standard RD compounding quarterly formula alternative
+            let total = p * months;
+            let interest = (p * months * (months + 1) / 2) * (r / 12); // Approximate estimation
+            let finalAmt = total + (p * (months * (months + 1)) / 2) * (annualRate / (12 * 100));
+            return Math.round(finalAmt);
+        }
+
+        function calculateAndShowRD() {
+            let p = parseFloat(document.getElementById('rdAmount').value);
+            let r = parseFloat(document.getElementById('rdRate').value);
+            let m = parseInt(document.getElementById('rdMonths').value);
+            
+            let res = calculateRD(p, r, m);
+            document.getElementById('rdResult').innerText = (currentLang === 'hi' ? 'मेच्योरिटी राशि: ₹' : 'Maturity Amount: ₹') + res;
+        }
+    </script>
+</body>
+</html>
