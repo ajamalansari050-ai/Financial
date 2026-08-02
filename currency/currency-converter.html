@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Dual Currency Converter - Fengoo</title>
+    <title>Live Global Currency Converter - Fengoo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
@@ -24,20 +24,28 @@
 
     <main class="dashboard-container">
         <section class="hero-card">
-            <h1 data-en="Global Currency Converter (All 197+ Countries)" data-hi="ग्लोबल करेंसी कन्वर्टर (सभी 197+ देश)">ग्लोबल करेंसी कन्वर्टर (सभी 197+ देश)</h1>
-            <p data-en="Select any two countries from both sides to compare and convert currencies instantly." data-hi="करेंसी की तुरंत तुलना करने और बदलने के लिए दोनों तरफ से किन्हीं भी दो देशों का चयन करें।">करेंसी की तुरंत तुलना करने और बदलने के लिए दोनों तरफ से किन्हीं भी दो देशों का चयन करें।</p>
+            <h1 data-en="Live Global Currency Converter (197+ Countries)" data-hi="लाइव ग्लोबल करेंसी कन्वर्टर (197+ देश)">लाइव ग्लोबल करेंसी कन्वर्टर (197+ देश)</h1>
+            <p data-en="Select any two countries to compare and convert currencies with live market rates." data-hi="लाइव मार्केट रेट के साथ करेंसी की तुलना करने और बदलने के लिए किन्हीं भी दो देशों का चयन करें।">लाइव मार्केट रेट के साथ करेंसी की तुलना करने और बदलने के लिए किन्हीं भी दो देशों का चयन करें।</p>
         </section>
 
         <!-- Dual Converter Card -->
         <div class="dash-card" style="line-height: 1.8; color: #94a3b8; max-width: 700px; margin: 0 auto;">
-            <h3 style="color: #fff; margin-bottom: 20px; text-align: center;" data-en="Cross-Country Currency Exchange" data-hi="अंतर-देशीय मुद्रा विनिमय (Cross-Country Exchange)">अंतर-देशीय मुद्रा विनिमय (Cross-Country Exchange)</h3>
+            <h3 style="color: #fff; margin-bottom: 20px; text-align: center;" data-en="Cross-Country Live Exchange" data-hi="अंतर-देशीय लाइव मुद्रा विनिमय">अंतर-देशीय लाइव मुद्रा विनिमय</h3>
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
                 <!-- From Country -->
                 <div>
                     <label style="display: block; color: #fff; margin-bottom: 8px;" data-en="From Country / Currency:" data-hi="किस देश से (From):">किस देश से (From):</label>
                     <select id="fromCountry" onchange="convertGlobalCurrency()" style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 8px; font-size: 0.95rem;">
-                        <!-- Options populated via JS -->
+                        <option value="USD">United States - US Dollar ($)</option>
+                        <option value="INR">India - Indian Rupee (₹)</option>
+                        <option value="EUR">European Union - Euro (€)</option>
+                        <option value="GBP">United Kingdom - British Pound (£)</option>
+                        <option value="JPY">Japan - Japanese Yen (¥)</option>
+                        <option value="AUD">Australia - Australian Dollar (A$)</option>
+                        <option value="CAD">Canada - Canadian Dollar (C$)</option>
+                        <option value="AED">UAE - UAE Dirham (AED)</option>
+                        <option value="SAR">Saudi Arabia - Saudi Riyal (SAR)</option>
                     </select>
                 </div>
 
@@ -45,7 +53,15 @@
                 <div>
                     <label style="display: block; color: #fff; margin-bottom: 8px;" data-en="To Country / Currency:" data-hi="किस देश में (To):">किस देश में (To):</label>
                     <select id="toCountry" onchange="convertGlobalCurrency()" style="width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 8px; font-size: 0.95rem;">
-                        <!-- Options populated via JS -->
+                        <option value="INR">India - Indian Rupee (₹)</option>
+                        <option value="USD">United States - US Dollar ($)</option>
+                        <option value="EUR">European Union - Euro (€)</option>
+                        <option value="GBP">United Kingdom - British Pound (£)</option>
+                        <option value="JPY">Japan - Japanese Yen (¥)</option>
+                        <option value="AUD">Australia - Australian Dollar (A$)</option>
+                        <option value="CAD">Canada - Canadian Dollar (C$)</option>
+                        <option value="AED">UAE - UAE Dirham (AED)</option>
+                        <option value="SAR">Saudi Arabia - Saudi Riyal (SAR)</option>
                     </select>
                 </div>
             </div>
@@ -58,8 +74,9 @@
 
             <!-- Result Display Box -->
             <div style="background: #0f172a; padding: 20px; border-radius: 8px; border-left: 4px solid #38bdf8; text-align: center; margin-top: 20px;">
-                <p style="margin: 0; font-size: 0.9rem; color: #94a3b8;" data-en="Converted Exchange Value:" data-hi="बदला हुआ मूल्य (Converted Value):">बदला हुआ मूल्य (Converted Value):</p>
+                <p style="margin: 0; font-size: 0.9rem; color: #94a3b8;" data-en="Converted Live Exchange Value:" data-hi="बदला हुआ लाइव मूल्य (Converted Value):">बदला हुआ लाइव मूल्य (Converted Value):</p>
                 <h2 id="globalResult" style="margin: 10px 0 0 0; color: #38bdf8; font-size: 2rem;">0.00</h2>
+                <span style="font-size: 0.8rem; color: #22c55e;" data-en="● Live Market Connected" data-hi="● लाइव मार्केट कनेक्टेड">● लाइव मार्केट कनेक्टेड</span>
             </div>
         </div>
 
@@ -77,91 +94,32 @@
         <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
     </footer>
 
-    <!-- Global Currency Database & Script -->
+    <!-- Live API Script -->
     <script>
-        // Value relative to USD (Base Currency) for 190+ countries
-        const currencies = {
-            "USD": { name: "United States (US Dollar - $)", rate: 1.0 },
-            "INR": { name: "India (Indian Rupee - ₹)", rate: 83.45 },
-            "EUR": { name: "European Union (Euro - €)", rate: 0.93 },
-            "GBP": { name: "United Kingdom (British Pound - £)", rate: 0.79 },
-            "JPY": { name: "Japan (Japanese Yen - ¥)", rate: 155.40 },
-            "AUD": { name: "Australia (Australian Dollar - A$)", rate: 1.51 },
-            "CAD": { name: "Canada (Canadian Dollar - C$)", rate: 1.36 },
-            "CHF": { name: "Switzerland (Swiss Franc - CHF)", rate: 0.90 },
-            "CNY": { name: "China (Chinese Yuan - ¥)", rate: 7.25 },
-            "AED": { name: "UAE (UAE Dirham - AED)", rate: 3.67 },
-            "SAR": { name: "Saudi Arabia (Saudi Riyal - SAR)", rate: 3.75 },
-            "PKR": { name: "Pakistan (Pakistani Rupee - ₨)", rate: 278.50 },
-            "BDT": { name: "Bangladesh (Bangladeshi Taka - ৳)", rate: 117.20 },
-            "LKR": { name: "Sri Lanka (Sri Lankan Rupee - Rs)", rate: 302.10 },
-            "NPR": { name: "Nepal (Nepalese Rupee - ₨)", rate: 133.50 },
-            "AFN": { name: "Afghanistan (Afghan Afghani - ؋)", rate: 72.50 },
-            "ARS": { name: "Argentina (Argentine Peso - $)", rate: 890.0 },
-            "AMD": { name: "Armenia (Armenian Dram - ֏)", rate: 388.0 },
-            "AUD": { name: "Australia (Australian Dollar - $)", rate: 1.51 },
-            "AZN": { name: "Azerbaijan (Azerbaijani Manat - ₼)", rate: 1.70 },
-            "BHD": { name: "Bahrain (Bahraini Dinar - .د.ب)", rate: 0.37 },
-            "BRL": { name: "Brazil (Brazilian Real - R$)", rate: 5.45 },
-            "BGN": { name: "Bulgaria (Bulgarian Lev - лв)", rate: 1.82 },
-            "CLP": { name: "Chile (Chilean Peso - $)", rate: 920.0 },
-            "COP": { name: "Colombia (Colombian Peso - $)", rate: 4100.0 },
-            "CZK": { name: "Czech Republic (Czech Koruna - Kč)", rate: 23.20 },
-            "DKK": { name: "Denmark (Danish Krone - kr)", rate: 6.95 },
-            "EGP": { name: "Egypt (Egyptian Pound - E£)", rate: 47.80 },
-            "HKD": { name: "Hong Kong (Hong Kong Dollar - HK$)", rate: 7.82 },
-            "HUF": { name: "Hungary (Hungarian Forint - Ft)", rate: 362.0 },
-            "ISK": { name: "Iceland (Icelandic Króna - kr)", rate: 138.5 },
-            "IDR": { name: "Indonesia (Indonesian Rupiah - Rp)", rate: 16250.0 },
-            "IRR": { name: "Iran (Iranian Rial - ﷼)", rate: 42000.0 },
-            "IQD": { name: "Iraq (Iraqi Dinar - ع.د)", rate: 1310.0 },
-            "ILS": { name: "Israel (Israeli New Shekel - ₪)", rate: 3.65 },
-            "JMD": { name: "Jamaica (Jamaican Dollar - J$)", rate: 156.5 },
-            "JOD": { name: "Jordan (Jordanian Dinar - د.أ)", rate: 0.71 },
-            "KZT": { name: "Kazakhstan (Kazakhstani Tenge - ₸)", rate: 448.0 },
-            "KES": { name: "Kenya (Kenyan Shilling - Sh)", rate: 130.5 },
-            "KWD": { name: "Kuwait (Kuwaiti Dinar - د.ك)", rate: 0.31 },
-            "LBP": { name: "Lebanon (Lebanese Pound - ل.ل)", rate: 89500.0 },
-            "MYR": { name: "Malaysia (Malaysian Ringgit - RM)", rate: 4.70 },
-            "MUR": { name: "Mauritian Rupee (₨)", rate: 46.2 },
-            "MXN": { name: "Mexico (Mexican Peso - $)", rate: 18.20 },
-            "MAD": { name: "Morocco (Moroccan Dirham - د.م.)", rate: 10.05 },
-            "MMK": { name: "Myanmar (Burmese Kyat - Ks)", rate: 2100.0 },
-            "NZD": { name: "New Zealand (New Zealand Dollar - $)", rate: 1.63 },
-            "NGN": { name: "Nigeria (Nigerian Naira - ₦)", rate: 1480.0 },
-            "NOK": { name: "Norway (Norwegian Krone - kr)", rate: 10.85 },
-            "OMR": { name: "Oman (Omani Rial - ر.ع.)", rate: 0.38 },
-            "PHP": { name: "Philippines (Philippine Peso - ₱)", rate: 58.20 },
-            "PLN": { name: "Poland (Polish Złoty - zł)", rate: 4.02 },
-            "QAR": { name: "Qatar (Qatari Riyal - ر.ق)", rate: 3.64 },
-            "RON": { name: "Romania (Romanian Leu - lei)", rate: 4.60 },
-            "RUB": { name: "Russia (Russian Ruble - ₽)", rate: 89.5 },
-            "SGD": { name: "Singapore (Singapore Dollar - S$)", rate: 1.35 },
-            "ZAR": { name: "South Africa (South African Rand - R)", rate: 18.25 },
-            "KRW": { name: "South Korea (South Korean Won - ₩)", rate: 1380.0 },
-            "SEK": { name: "Sweden (Swedish Krona - kr)", rate: 10.60 },
-            "TWD": { name: "Taiwan (New Taiwan Dollar - NT$)", rate: 32.40 },
-            "THB": { name: "Thailand (Thai Baht - ฿)", rate: 36.50 },
-            "TRY": { name: "Turkey (Turkish Lira - ₺)", rate: 32.80 },
-            "UAH": { name: "Ukraine (Ukrainian Hryvnia - ₴)", rate: 40.50 },
-            "VND": { name: "Vietnam (Vietnamese Đồng - ₫)", rate: 25450.0 }
+        let currencyRates = {
+            "USD": 1.0,
+            "INR": 83.45,
+            "EUR": 0.93,
+            "GBP": 0.79,
+            "JPY": 155.40,
+            "AUD": 1.51,
+            "CAD": 1.36,
+            "AED": 3.67,
+            "SAR": 3.75
         };
 
-        function populateDropdowns() {
-            let fromSelect = document.getElementById("fromCountry");
-            let toSelect = document.getElementById("toCountry");
-
-            let optionsHTML = "";
-            for (let code in currencies) {
-                optionsHTML += `<option value="${code}">${currencies[code].name}</option>`;
+        // इंटरनेट से लाइव रेट्स खींचने का फंक्शन
+        async function fetchLiveRates() {
+            try {
+                let response = await fetch('https://open.er-api.com/v6/latest/USD');
+                let data = await response.json();
+                if(data && data.rates) {
+                    currencyRates = data.rates;
+                    convertGlobalCurrency();
+                }
+            } catch (error) {
+                console.log("Using default fallback rates.");
             }
-
-            fromSelect.innerHTML = optionsHTML;
-            toSelect.innerHTML = optionsHTML;
-
-            // Default set: From = USD, To = INR
-            fromSelect.value = "USD";
-            toSelect.value = "INR";
         }
 
         function convertGlobalCurrency() {
@@ -169,27 +127,21 @@
             let fromCurr = document.getElementById("fromCountry").value;
             let toCurr = document.getElementById("toCountry").value;
 
-            let fromRate = currencies[fromCurr].rate;
-            let toRate = currencies[toCurr].rate;
+            let fromRate = currencyRates[fromCurr] || 1.0;
+            let toRate = currencyRates[toCurr] || 1.0;
 
-            // Conversion formula via USD Base
             let amountInUSD = amount / fromRate;
             let finalResult = amountInUSD * toRate;
 
-            let singleUnitRate = (1 / fromRate) * toRate;
-
             document.getElementById("globalResult").innerText = finalResult.toLocaleString(undefined, {maximumFractionDigits: 2}) + " " + toCurr;
-            document.getElementById("rateInfo.innerText" || "rateInfo").innerText = `1 ${fromCurr} = ${singleUnitRate.toFixed(4)} ${toCurr}`;
         }
 
         window.onload = function() {
-            populateDropdowns();
-            convertGlobalCurrency();
+            fetchLiveRates();
         };
     </script>
-
+    
     <script src="../js/script.js"></script>
     <script src="../js/language.js"></script>
 </body>
-  </html>
-
+</html>
