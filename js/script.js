@@ -54,3 +54,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
     container.innerHTML = htmlOutput;
 });
+// Live Ticker Auto Update Script for BSE
+setInterval(function() {
+    const priceElement = document.getElementById('bse-price');
+    const changeElement = document.getElementById('bse-change');
+    const tickerItem = document.getElementById('bse-ticker');
+
+    if (priceElement && changeElement) {
+        // मौजूदा कीमत निकालना
+        let currentPrice = parseFloat(priceElement.innerText.replace('₹', '').replace(/,/g, ''));
+        
+        // -3 रुपये से +3 रुपये तक का रैंडम बदलाव (Fluctuation)
+        let randomChange = (Math.random() * 6 - 3); 
+        let newPrice = (currentPrice + randomChange).toFixed(2);
+        
+        // प्रतिशत बदलाव कैलकुलेट करना
+        let percentChange = (randomChange > 0 ? "+" : "") + (randomChange / 10).toFixed(2) + "%";
+        
+        // नई वैल्यू सेट करना
+        priceElement.innerText = '₹' + Number(newPrice).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        
+        if (randomChange >= 0) {
+            changeElement.innerText = `(${percentChange} ▲)`;
+            changeElement.style.color = '#4ade80'; // हरा रंग (बढ़ोतरी)
+            tickerItem.className = 'ticker-item green';
+        } else {
+            changeElement.innerText = `(${percentChange} ▼)`;
+            changeElement.style.color = '#f87171'; // लाल रंग (गिरावट)
+            tickerItem.className = 'ticker-item red';
+        }
+    }
+}, 3000); // हर 3 सेकंड (3000ms) में अपने आप अपडेट होगा
+
