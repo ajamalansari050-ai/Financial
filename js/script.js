@@ -5,3 +5,6 @@ console.log("Fengoo Dashboard Loaded Successfully!");
 document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed.");
 });
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Fengoo.in dashboard initialized successfully.");
+});
