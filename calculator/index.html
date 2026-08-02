@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
 
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="Financial Calculators Hub" data-hi="वित्तीय कैलकुलेटर हब">वित्तीय कैलकुलेटर हब</h1>
+            <p data-en="Choose a calculator below to plan your loans, investments, and tax accurately." data-hi="अपने लोन, निवेश और टैक्स की सटीक योजना बनाने के लिए नीचे एक कैलकुलेटर चुनें।">अपने लोन, निवेश और टैक्स की सटीक योजना बनाने के लिए नीचे एक कैलकुलेटर चुनें।</p>
+        </section>
+
+        <!-- Calculators Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- EMI Calculator -->
+            <div class="dash-card">
+                <div class="card-icon">🧮</div>
+                <h3 data-en="EMI Calculator" data-hi="ईएमआई कैलकुलेटर">ईएमआई कैलकुलेटर</h3>
+                <p data-en="Calculate monthly loan instalments easily." data-hi="आसानी से मासिक लोन किस्त की गणना करें।">आसानी से मासिक लोन किस्त की गणना करें।</p>
+                <a href="emi-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            </div>
+
+            <!-- SIP Calculator -->
+            <div class="dash-card">
+                <div class="card-icon">📈</div>
+                <h3 data-en="SIP Calculator" data-hi="एसआईपी कैलकुलेटर">एसआईपी कैलकुलेटर</h3>
+                <p data-en="Estimate your mutual fund returns." data-hi="अपने म्यूचुअल फंड रिटर्न का अनुमान लगाएं।">अपने म्यूचुअल फंड रिटर्न का अनुमान लगाएं।</p>
+                <a href="sip-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            </div>
+
+            <!-- FD Calculator -->
+            <div class="dash-card">
+                <div class="card-icon">💰</div>
+                <h3 data-en="FD Calculator" data-hi="एफडी कैलकुलेटर">एफडी कैलकुलेटर</h3>
+                <p data-en="Calculate fixed deposit maturity amount." data-hi="फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।">फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
+                <a href="fd-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            </div>
+
+            <!-- GST Calculator -->
+            <div class="dash-card">
+                <div class="card-icon">📊</div>
+                <h3 data-en="GST Calculator" data-hi="जीएसटी कैलकुलेटर">जीएसटी कैलकुलेटर</h3>
+                <p data-en="Calculate goods and services tax instantly." data-hi="तुरंत वस्तु और सेवा कर (GST) की गणना करें।">तुरंत वस्तु और सेवा कर (GST) की गणना करें।</p>
+                <a href="gst-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            </div>
+
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+</html>
