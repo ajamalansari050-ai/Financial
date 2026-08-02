@@ -27,7 +27,44 @@
             <h1 data-en="Finance Blog & Expert Tips" data-hi="फाइनेंस ब्लॉग और विशेषज्ञ सलाह">फाइनेंस ब्लॉग और विशेषज्ञ सलाह</h1>
             <p data-en="Read expert articles on smart money saving, investments, and financial growth." data-hi="पैसे की बचत, निवेश और वित्तीय वृद्धि पर विशेषज्ञों के लेख पढ़ें।">पैसे की बचत, निवेश और वित्तीय वृद्धि पर विशेषज्ञों के लेख पढ़ें।</p>
         </section>
+<!-- Live Financial News Auto-Update Section -->
+<div class="dash-card" style="margin-top: 30px; background: #0f172a; border-left: 4px solid #38bdf8;">
+    <h3 style="color: #fff; margin-bottom: 15px;" data-en="Live Financial News Feed" data-hi="ताजा वित्तीय समाचार फीड">ताजा वित्तीय समाचार फीड</h3>
+    <div id="liveNewsContainer" style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+        <p data-en="Loading latest market updates automatically..." data-hi="बाजार के नवीनतम अपडेट स्वतः लोड हो रहे हैं...">बाजार के नवीनतम अपडेट स्वतः लोड हो रहे हैं...</p>
+    </div>
+</div>
 
+<!-- Script to fetch live finance news/updates automatically -->
+<script>
+    async function fetchLiveFinancialNews() {
+        try {
+            // फ्री फाइनेंशियल डेटा या मार्केट ट्रेंड्स फेच करने के लिए
+            let response = await fetch('https://open.er-api.com/v6/latest/USD');
+            let data = await response.json();
+            
+            if(data && data.rates) {
+                let newsBox = document.getElementById("liveNewsContainer");
+                newsBox.innerHTML = `
+                    <p style="color: #22c55e; font-weight: bold;">● मार्केट लाइव अपडेट (Market Status: Active)</p>
+                    <p>अमेरिकी डॉलर (USD) के मुकाबले वैश्विक मुद्राओं के लाइव विनिमय दरें अपडेट कर दी गई हैं। आज का बेस रेट 1 USD = ${data.rates.INR} INR पर ट्रेड कर रहा है।</p>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">آخرین به‌روزرسانی: ${new Date().toLocaleString()}</p>
+                `;
+            }
+        } catch (error) {
+            console.error("Could not fetch live news feed.");
+        }
+    }
+
+    // पेज खुलते ही अपने आप लाइव डेटा फेच हो जाएगा
+    window.onload = function() {
+        if(typeof fetchLiveRates === 'function') {
+            fetchLiveRates();
+        }
+        fetchLiveFinancialNews();
+    };
+</script>
+        
         <!-- Blog Posts Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
             
