@@ -24,19 +24,24 @@
             </button>
         </div>
     </header>
-<!-- मेन स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->
+
+    <!-- होम स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->
 <div class="home-market-section" style="background: #0f172a; padding: 10px; border-bottom: 1px solid #334155;">
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 10px;">
         
-        <!-- यहाँ शेयर एक लाइन में स्क्रॉल या दिखेंगे -->
+        <!-- टिकर ट्रैक जिसमें BSE और अन्य शेयर दिखेंगे -->
         <div class="market-ticker-container" style="overflow-x: auto; white-space: nowrap; flex-grow: 1; scrollbar-width: none;">
             <div class="ticker-track" style="display: inline-flex; gap: 20px;">
                 
-        <!-- BSE शेयर/इंडेक्स का टिकर कोड -->
-<a href="shares/bse.html" class="ticker-item green" style="text-decoration: none; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
-    <b>BSE:</b> ₹3,450 <span style="color: #4ade80;">(+1.80% ▲)</span>
-</a>
-        
+                <!-- BSE पर क्लिक करने पर shares/bse.html खुलेगा -->
+                <a href="shares/bse.html" class="ticker-item green" style="text-decoration: none; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
+                    <b>BSE:</b> ₹3,450 <span style="color: #4ade80;">(+1.80% ▲)</span>
+                </a>
+
+                <!-- यदि कोई अन्य शेयर जोड़ना चाहें तो यहाँ जोड़ सकते हैं -->
+
+            </div>
+        </div>
 
         <!-- "All Shares" देखने के लिए बटन -->
         <div style="margin-left: 15px; flex-shrink: 0;">
