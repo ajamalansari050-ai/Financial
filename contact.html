@@ -6,59 +6,70 @@
     <title>Contact Us - Fengoo</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <!-- अलग से बनाई गई CSS फाइल यहाँ लिंक है -->
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
-    <!-- Top Dashboard Header -->
-    <header class="dashboard-header">
+    <!-- हेडर -->
+    <header class="contact-header">
         <div class="logo-container">
             <a href="index.html" style="text-decoration: none; color: inherit;">
                 <h2>Fengoo<span>.in</span></h2>
             </a>
         </div>
-        
-        <!-- Round Language Switcher Button -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()" style="background: #38bdf8; border: none; padding: 6px 14px; border-radius: 20px; color: #0f172a; font-weight: bold; cursor: pointer;">
                 <span id="langText">ENG</span>
             </button>
         </div>
     </header>
 
-    <!-- Main Dashboard Container -->
-    <main class="dashboard-container">
-        
-        <!-- Page Title Section -->
-        <section class="hero-card">
-            <h1 data-en="Contact Us" data-hi="संपर्क करें">संपर्क करें</h1>
-            <p data-en="Have questions, feedback, or need support? Reach out to us." data-hi="कोई प्रश्न, प्रतिक्रिया है या सहायता की आवश्यकता है? हमसे संपर्क करें।">कोई प्रश्न, प्रतिक्रिया है या सहायता की आवश्यकता है? हमसे संपर्क करें।</p>
-        </section>
+    <!-- मुख्य संपर्क बॉक्स -->
+    <main>
+        <div class="contact-container">
+            <h2 style="text-align: center; margin-bottom: 10px; color: #f8fafc;" data-en="Contact Us" data-hi="हमसे संपर्क करें">हमसे संपर्क करें</h2>
+            <p style="text-align: center; color: #94a3b8; font-size: 0.9rem; margin-bottom: 25px;" data-en="Fill in your details and description below to reach out to us." data-hi="हमसे बात करने के लिए नीचे अपना विवरण और विवरण (डिस्क्रिप्शन) भरें।">हमसे बात करने के लिए नीचे अपना विवरण और विवरण (डिस्क्रिप्शन) भरें।</p>
 
-        <!-- Content Card -->
-        <div class="dash-card" style="line-height: 1.8; color: #94a3b8;">
-            <p data-en="Email: support@fengoo.in" data-hi="ईमेल: support@fengoo.in">ईमेल: support@fengoo.in</p>
-            <p data-en="Our team is available Monday through Saturday to assist you with your queries." data-hi="हमारी टीम आपके प्रश्नों में सहायता के लिए सोमवार से शनिवार तक उपलब्ध है।">हमारी टीम आपके प्रश्नों में सहायता के लिए सोमवार से शनिवार तक उपलब्ध है।</p>
+            <!-- फॉर्म -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                
+                <!-- नाम का बॉक्स -->
+                <div class="form-group">
+                    <label data-en="Your Name:" data-hi="आपका नाम (Name):">आपका नाम (Name):</label>
+                    <input type="text" name="name" required placeholder="अपना पूरा नाम दर्ज करें">
+                </div>
+
+                <!-- ईमेल का बॉक्स -->
+                <div class="form-group">
+                    <label data-en="Your Email:" data-hi="आपका ईमेल (Email):">आपका ईमेल (Email):</label>
+                    <input type="email" name="email" required placeholder="example@gmail.com">
+                </div>
+
+                <!-- डिस्क्रिप्शन / संदेश का बॉक्स -->
+                <div class="form-group">
+                    <label data-en="Description / Message:" data-hi="डिस्क्रिप्शन / संदेश (Description):">डिस्क्रिप्शन / संदेश (Description):</label>
+                    <textarea name="message" required placeholder="अपना संदेश या विवरण यहाँ विस्तार से लिखें..."></textarea>
+                </div>
+
+                <!-- भेजने वाला बटन -->
+                <button type="submit" class="submit-btn" data-en="Send Message" data-hi="संदेश भेजें">संदेश भेजें</button>
+            </form>
+
+            <!-- होम पर वापस जाने का लिंक -->
+            <div class="back-link">
+                <a href="index.html" data-en="← Back to Home" data-hi="← होम पर वापस जाएं">← होम पर वापस जाएं</a>
+            </div>
         </div>
-
-        <!-- Back to Home -->
-        <div style="margin-top: 30px; text-align: center;">
-            <a href="index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
-        </div>
-
     </main>
 
-    <!-- Footer Links -->
-    <footer class="dashboard-footer">
-        <div class="footer-links">
-            <a href="privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
-            <a href="terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
-            <a href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
-        </div>
+    <!-- फुटर -->
+    <footer class="dashboard-footer" style="text-align: center; padding: 20px; color: #64748b; font-size: 0.85rem;">
         <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts Linking -->
     <script src="js/script.js"></script>
     <script src="js/language.js"></script>
 </body>
 </html>
+
