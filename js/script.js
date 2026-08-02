@@ -54,16 +54,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     container.innerHTML = htmlOutput;
 });
-// Official & Real Market Closing Price Display
+// Real BSE SENSEX Closing Data from Official Source
 function setRealMarketData() {
     const priceElement = document.getElementById('bse-price');
     const changeElement = document.getElementById('bse-change');
     const tickerItem = document.getElementById('bse-ticker');
 
     if (priceElement && changeElement) {
-        // सेंसेक्स/बीएसई का आधिकारिक और वास्तविक बाजार भाव (फर्जी रैंडम बदलाव बिल्कुल नहीं)
-        priceElement.innerText = '₹79,458.25'; 
-        changeElement.innerText = '(+0.45% ▲)';
+        // स्क्रीनशॉट के अनुसार वास्तविक और सटीक बाजार भाव
+        priceElement.innerText = '₹78,094.64'; 
+        changeElement.innerText = '(+0.21% ▲)';
         changeElement.style.color = '#4ade80'; // हरे रंग में सटीक बढ़त
         
         if (tickerItem) {
