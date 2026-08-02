@@ -4,150 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Calculator - Fengoo</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <style>
-        .calc-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            text-align: left;
-        }
-        .input-group {
-            margin-bottom: 15px;
-        }
-        .input-group label {
-            display: block;
-            font-size: 0.95rem;
-            color: #94a3b8;
-            margin-bottom: 6px;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: #0f172a;
-            color: #fff;
-            font-size: 1rem;
-        }
-        .calc-btn {
-            width: 100%;
-            padding: 12px;
-            background: #38bdf8;
-            color: #0f172a;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 10px;
-        }
-        .calc-result {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(56, 189, 248, 0.1);
-            border-radius: 8px;
-            color: #38bdf8;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
-    <!-- Top Dashboard Header -->
-    <header class="dashboard-header">
+    <!-- हेडर -->
+    <header class="contact-header">
         <div class="logo-container">
-            <a href="../index.html" style="text-decoration: none; color: inherit;">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
                 <h2>Fengoo<span>.in</span></h2>
             </a>
         </div>
-        
-        <!-- Round Language Switcher Button -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
-                <span id="langText">ENG</span>
-            </button>
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
         </div>
     </header>
 
-    <!-- Main Dashboard Container -->
-    <main class="dashboard-container">
-        
-        <!-- Page Title Section -->
-        <section class="hero-card" style="text-align: center;">
-            <h1 data-en="Age Calculator" data-hi="आयु कैलकुलेटर">आयु कैलकुलेटर</h1>
-            <p data-en="Calculate your exact age in years, months, and days." data-hi="वर्ष, महीने और दिनों में अपनी सटीक उम्र की गणना करें।">वर्ष, महीने और दिनों में अपनी सटीक उम्र की गणना करें।</p>
-        </section>
+    <!-- मुख्य कैलकुलेटर बॉक्स -->
+    <main>
+        <div class="contact-container" style="max-width: 500px; margin: 40px auto; background: #1e293b; padding: 30px; border-radius: 12px; border: 1px solid #334155;">
+            <h2 style="text-align: center; margin-bottom: 10px; color: #f8fafc;" data-en="Age Calculator" data-hi="आयु कैलकुलेटर (Age Calculator)">आयु कैलकुलेटर (Age Calculator)</h2>
+            <p style="text-align: center; color: #94a3b8; font-size: 0.9rem; margin-bottom: 25px;" data-en="Select your birthdate to calculate your exact age." data-hi="अपनी सटीक आयु जानने के लिए अपनी जन्म तिथि चुनें।">अपनी सटीक आयु जानने के लिए अपनी जन्म तिथि चुनें।</p>
 
-        <!-- Age Tool Box -->
-        <div class="calc-container">
-            <div class="input-group">
-                <label data-en="Date of Birth" data-hi="जन्म तिथि">जन्म तिथि</label>
-                <input type="date" id="dob">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label style="display: block; color: #cbd5e1; margin-bottom: 8px;" data-en="Birth Date:" data-hi="जन्म तिथि (Birth Date):">जन्म तिथि (Birth Date):</label>
+                <!-- यहाँ id="birthDate" होना जरूरी है -->
+                <input type="date" id="birthDate" style="width: 100%; padding: 12px; background: #0f172a; border: 1px solid #475569; border-radius: 8px; color: #fff; outline: none; box-sizing: border-box;">
             </div>
-            
-            <button class="calc-btn" onclick="calculateAge()" data-en="Calculate Age" data-hi="उम्र की गणना करें">उम्र की गणना करें</button>
-            
-            <div class="calc-result" id="ageResult">आपकी उम्र: --</div>
-        </div>
 
-        <!-- Back to Calculator Hub -->
-        <div style="margin-top: 30px; text-align: center;">
-            <a href="index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Calculators" data-hi="← कैलकुलेटर हब पर वापस जाएं">← कैलकुलेटर हब पर वापस जाएं</a>
-        </div>
+            <!-- बटन पर onclick="calculateAge()" होना जरूरी है -->
+            <button onclick="calculateAge()" class="submit-btn" style="width: 100%; background: #38bdf8; color: #0f172a; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-bottom: 20px;" data-en="Calculate Age" data-hi="आयु की गणना करें">आयु की गणना करें</button>
 
+            <!-- रिजल्ट दिखाने के लिए id="ageResult" -->
+            <div id="ageResult" style="text-align: center; font-size: 1.1rem; font-weight: bold; color: #38bdf8; padding: 15px; background: #0f172a; border-radius: 8px; border: 1px solid #334155;">
+                आयु: --
+            </div>
+
+            <div class="back-link" style="text-align: center; margin-top: 25px;">
+                <a href="index.html" style="color: #38bdf8; text-decoration: none;" data-en="← Back to Home" data-hi="← होम पर वापस जाएं">← होम पर वापस जाएं</a>
+            </div>
+        </div>
     </main>
 
-    <!-- Footer Links -->
-    <footer class="dashboard-footer">
-        <div class="footer-links">
-            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
-            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
-            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
-        </div>
-        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
-    </footer>
-
-    <!-- Scripts Linking -->
-    <script src="../js/script.js"></script>
-    <script src="../js/language.js"></script>
+    <!-- कैलकुलेटर का अपना लॉजिक (JavaScript) -->
     <script>
         function calculateAge() {
-            let dobValue = document.getElementById('dob').value;
-            if(!dobValue) {
-                document.getElementById('ageResult').innerText = currentLang === 'hi' ? 'कृपया जन्म तिथि चुनें!' : 'Please select Date of Birth!';
+            let birthDateVal = document.getElementById("birthDate").value;
+            let resultDiv = document.getElementById("ageResult");
+
+            if (!birthDateVal) {
+                resultDiv.innerText = "कृपया पहले अपनी जन्म तिथि चुनें!";
                 return;
             }
-            let dob = new Date(dobValue);
+
+            let birthDate = new Date(birthDateVal);
             let today = new Date();
-            
-            let years = today.getFullYear() - dob.getFullYear();
-            let months = today.getMonth() - dob.getMonth();
-            let days = today.getDate() - dob.getDate();
-            
+
+            let years = today.getFullYear() - birthDate.getFullYear();
+            let months = today.getMonth() - birthDate.getMonth();
+            let days = today.getDate() - birthDate.getDate();
+
             if (days < 0) {
                 months--;
                 let prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
                 days += prevMonth.getDate();
             }
+
             if (months < 0) {
                 years--;
                 months += 12;
             }
-            
-            if(currentLang === 'hi') {
-                document.getElementById('ageResult').innerText = `आयु: ${years} वर्ष, ${months} महीने, ${days} दिन`;
-            } else {
-                document.getElementById('ageResult').innerText = `Age: ${years} Years, ${months} Months, ${days} Days`;
-            }
+
+            resultDiv.innerText = `आयु: ${years} वर्ष, ${months} महीने, ${days} दिन`;
         }
     </script>
+
+    <script src="js/language.js"></script>
 </body>
 </html>
