@@ -1,1 +1,96 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Hub - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="Insurance Information Hub" data-hi="बीमा जानकारी हब">बीमा जानकारी हब</h1>
+            <p data-en="Protect your family, health, and assets with the right insurance policies." data-hi="सही बीमा पॉलिसियों के साथ अपने परिवार, स्वास्थ्य और परिसंपत्तियों की सुरक्षा करें।">सही बीमा पॉलिसियों के साथ अपने परिवार, स्वास्थ्य और परिसंपत्तियों की सुरक्षा करें।</p>
+        </section>
+
+        <!-- Insurance Categories Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Health Insurance -->
+            <div class="dash-card">
+                <div class="card-icon">🩺</div>
+                <h3 data-en="Health Insurance" data-hi="हेल्थ इंश्योरेंस">हेल्थ इंश्योरेंस</h3>
+                <p data-en="Cover medical expenses and hospitalisation costs." data-hi="चिकित्सा खर्चों और अस्पताल के खर्चों को कवर करें।">चिकित्सा खर्चों और अस्पताल के खर्चों को कवर करें।</p>
+                <a href="health-insurance.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Life Insurance -->
+            <div class="dash-card">
+                <div class="card-icon">🛡️</div>
+                <h3 data-en="Life Insurance" data-hi="लाइफ इंश्योरेंस">लाइफ इंश्योरेंस</h3>
+                <p data-en="Ensure financial security for your family's future." data-hi="अपने परिवार के भविष्य के लिए वित्तीय सुरक्षा सुनिश्चित करें।">अपने परिवार के भविष्य के लिए वित्तीय सुरक्षा सुनिश्चित करें।</p>
+                <a href="life-insurance.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Car Insurance -->
+            <div class="dash-card">
+                <div class="card-icon">🚗</div>
+                <h3 data-en="Car Insurance" data-hi="कार इंश्योरेंस">कार इंश्योरेंस</h3>
+                <p data-en="Protect your vehicle against damages and third-party liabilities." data-hi="क्षति और तीसरे पक्ष की देनदारियों के खिलाफ अपने वाहन की रक्षा करें।">क्षति और तीसरे पक्ष की देनदारियों के खिलाफ अपने वाहन की रक्षा करें।</p>
+                <a href="car-insurance.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+            <!-- Bike Insurance -->
+            <div class="dash-card">
+                <div class="card-icon">🏍️</div>
+                <h3 data-en="Bike Insurance" data-hi="बाइक इंश्योरेंस">बाइक इंश्योरेंस</h3>
+                <p data-en="Comprehensive protection for your two-wheeler." data-hi="आपके दोपहिया वाहन के लिए व्यापक सुरक्षा।">आपके दोपहिया वाहन के लिए व्यापक सुरक्षा।</p>
+                <a href="bike-insurance.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
+
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+</html>
