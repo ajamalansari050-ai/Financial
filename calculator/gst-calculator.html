@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        .calc-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .calc-btn {
+            width: 100%;
+            padding: 12px;
+            background: #38bdf8;
+            color: #0f172a;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        .calc-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 8px;
+            color: #38bdf8;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Round Language Switcher Button -->
+        <div class="lang-switcher-container">
+            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
+                <span id="langText">ENG</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card" style="text-align: center;">
+            <h1 data-en="GST Calculator" data-hi="जीएसटी (GST) कैलकुलेटर">जीएसटी (GST) कैलकुलेटर</h1>
+            <p data-en="Calculate Goods and Services Tax instantly." data-hi="तुरंत वस्तु और सेवा कर (GST) की गणना करें।">तुरंत वस्तु और सेवा कर (GST) की गणना करें।</p>
+        </section>
+
+        <!-- GST Tool Box -->
+        <div class="calc-container">
+            <div class="input-group">
+                <label data-en="Initial Amount (₹)" data-hi="मूल राशि (₹)">मूल राशि (₹)</label>
+                <input type="number" id="gstAmount" value="10000">
+            </div>
+            <div class="input-group">
+                <label data-en="GST Rate (%)" data-hi="जीएसटी दर (%)">जीएसटी दर (%)</label>
+                <select id="gstRate" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: #0f172a; color: #fff;">
+                    <option value="5">5%</option>
+                    <option value="12">12%</option>
+                    <option value="18" selected>18%</option>
+                    <option value="28">28%</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label data-en="Calculation Type" data-hi="गणना का प्रकार">गणना का प्रकार</label>
+                <select id="gstType" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: #0f172a; color: #fff;">
+                    <option value="add" selected>Add GST (जीएसटी जोड़ें)</option>
+                    <option value="remove">Remove GST (जीएसटी हटाएं)</option>
+                </select>
+            </div>
+            
+            <button class="calc-btn" onclick="calculateAndShowGST()" data-en="Calculate GST" data-hi="GST की गणना करें">GST की गणना करें</button>
+            
+            <div class="calc-result" id="gstResult">GST Amount: ₹0 <br> Total Amount: ₹0</div>
+        </div>
+
+        <!-- Back to Calculator Hub -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Calculators" data-hi="← कैलकुलेटर हब पर वापस जाएं">← कैलकुलेटर हब पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts Linking -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+    <script src="../js/gst.js"></script>
+    <script>
+        function calculateAndShowGST() {
+            let amt = parseFloat(document.getElementById('gstAmount').value);
+            let rate = parseFloat(document.getElementById('gstRate').value);
+            let type = document.getElementById('gstType').value === 'add';
+            
+            let res = calculateGST(amt, rate, type);
+            if(currentLang === 'hi') {
+                document.getElementById('gstResult').innerHTML = 'GST राशि: ₹' + res.gst + '<br>कुल राशि: ₹' + res.total;
+            } else {
+                document.getElementById('gstResult').innerHTML = 'GST Amount: ₹' + res.gst + '<br>Total Amount: ₹' + res.total;
+            }
+        }
+    </script>
+</body>
+</html>
