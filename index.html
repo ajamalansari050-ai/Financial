@@ -24,52 +24,40 @@
             </button>
         </div>
     </header>
-<!-- Clean & Fast Market Ticker Style -->
-<style>
-    .market-ticker-container {
-        width: 100%;
-        background: #0f172a;
-        border: 1px solid #334155;
-        border-radius: 12px;
-        overflow: hidden;
-        position: relative;
-        margin-bottom: 20px;
-        padding: 12px 0;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-    .market-ticker-track {
-        display: inline-block;
-        white-space: nowrap;
-        animation: tickerMove 12s linear infinite; /* स्पीड तेज कर दी गई है (12s) */
-    }
-    .market-ticker-track:hover {
-        animation-play-state: paused;
-    }
-    .ticker-item {
-        display: inline-block;
-        padding: 0 25px;
-        font-size: 0.9rem;
-        color: #fff;
-        border-right: 1px solid #334155;
-    }
-    @keyframes tickerMove {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-    }
-</style>
+<!-- मेन स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->
+<div class="home-market-section" style="background: #0f172a; padding: 10px; border-bottom: 1px solid #334155;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 10px;">
+        
+        <!-- यहाँ शेयर एक लाइन में स्क्रॉल या दिखेंगे -->
+        <div class="market-ticker-container" style="overflow-x: auto; white-space: nowrap; flex-grow: 1; scrollbar-width: none;">
+            <div class="ticker-track" style="display: inline-flex; gap: 20px;">
+                
+                <!-- Reliance पर क्लिक करने पर shares/reliance.html खुलेगा -->
+                <a href="shares/reliance.html" class="ticker-item green" style="text-decoration: none; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
+                    <b>RELIANCE:</b> ₹2,950 <span style="color: #4ade80;">(+1.25% ▲)</span>
+                </a>
 
-<!-- Live Share Market Ticking Line -->
-<div class="market-ticker-container">
-    <div class="market-ticker-track" id="marketTicker">
-        <span class="ticker-item">📊 <strong data-en="Market Live" data-hi="मार्केट लाइव">मार्केट लाइव</strong></span>
-        <span class="ticker-item">BSE SENSEX: <span id="tSensex" style="color:#38bdf8; font-weight:bold;">74,235.40</span> <span style="color:#22c55e;">(+0.56%)</span></span>
-        <span class="ticker-item">NIFTY 50: <span id="tNifty" style="color:#22c55e; font-weight:bold;">22,510.20</span> <span style="color:#22c55e;">(+0.59%)</span></span>
-        <span class="ticker-item">BANK NIFTY: <span id="tBank" style="color:#eab308; font-weight:bold;">48,150.80</span> <span style="color:#ef4444;">(-0.18%)</span></span>
-        <span class="ticker-item">USD/INR: <span id="tUsd" style="color:#a855f7; font-weight:bold;">83.45</span> <span style="color:#22c55e;">(+0.06%)</span></span>
-        <span class="ticker-item">GOLD (10g): <span style="color:#facc15; font-weight:bold;">₹71,850</span> <span style="color:#22c55e;">(+0.40%)</span></span>
+                <!-- TCS पर क्लिक करने पर shares/tcs.html खुलेगा -->
+                <a href="shares/tcs.html" class="ticker-item green" style="text-decoration: none; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
+                    <b>TCS:</b> ₹4,120 <span style="color: #4ade80;">(+0.85% ▲)</span>
+                </a>
+
+                <!-- HDFC पर क्लिक करने पर shares/hdfc.html खुलेगा -->
+                <a href="shares/hdfc.html" class="ticker-item red" style="text-decoration: none; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
+                    <b>HDFC:</b> ₹1,510 <span style="color: #f87171;">(-0.45% ▼)</span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- "All Shares" देखने के लिए बटन -->
+        <div style="margin-left: 15px; flex-shrink: 0;">
+            <a href="shares/all-shares.html" style="background: #38bdf8; color: #0f172a; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold;" data-en="All Shares →" data-hi="सभी शेयर →">सभी शेयर →</a>
+        </div>
+
     </div>
 </div>
-
+    
 <!-- Auto Update Script -->
 <script>
     function updateTickerValues() {
@@ -86,7 +74,7 @@
             nElem.innerText = nVal.toFixed(2);
             bElem.innerText = bVal.toFixed(2);
         }
-    }
+    
 
     // Har 1 second mein values live update hongi
     setInterval(updateTickerValues, 3000);
