@@ -1,30 +1,36 @@
-// Global language state
-let currentLang = localStorage.getItem('fengoo_lang') || 'hi';
-
-document.addEventListener("DOMContentLoaded", function() {
-    applyLanguage(currentLang);
-});
+// Global Language Switcher Script for Fengoo.in
 
 function toggleLanguage() {
-    currentLang = currentLang === 'hi' ? 'en' : 'hi';
-    localStorage.setItem('fengoo_lang', currentLang);
-    applyLanguage(currentLang);
+    let currentLang = localStorage.getItem("fengoo_lang") || "hi";
+    let newLang = currentLang === "hi" ? "en" : "hi";
+    
+    localStorage.setItem("fengoo_lang", newLang);
+    applyLanguage(newLang);
 }
 
 function applyLanguage(lang) {
-    // Toggle Button Text Update
-    const langText = document.getElementById('langText');
-    if(langText) {
-        langText.innerText = lang === 'hi' ? 'ENG' : 'हिंदी';
+    // Update button text
+    let langText = document.getElementById("langText");
+    if (langText) {
+        langText.innerText = lang === "hi" ? "ENG" : "हिन्दी";
     }
 
-    // Translate all elements having data-en and data-hi attributes
-    const elements = document.querySelectorAll('[data-en][data-hi]');
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+
+    // Translate elements with data-en and data-hi attributes
+    let elements = document.querySelectorAll("[data-en][data-hi]");
     elements.forEach(el => {
-        if(lang === 'hi') {
-            el.innerText = el.getAttribute('data-hi');
+        if (lang === "en") {
+            el.innerHTML = el.getAttribute("data-en");
         } else {
-            el.innerText = el.getAttribute('data-en');
+            el.innerHTML = el.getAttribute("data-hi");
         }
     });
-    }
+}
+
+// Apply saved language preference on page load
+document.addEventListener("DOMContentLoaded", () => {
+    let savedLang = localStorage.getItem("fengoo_lang") || "hi";
+    applyLanguage(savedLang);
+});
