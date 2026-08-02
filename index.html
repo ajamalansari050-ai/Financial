@@ -25,7 +25,7 @@
         </div>
     </header>
 
-    <!-- होम स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->
+<!-- होम स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->
 <div class="home-market-section" style="background: #0f172a; padding: 10px; border-bottom: 1px solid #334155;">
     <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 10px;">
         
@@ -33,12 +33,12 @@
         <div class="market-ticker-container" style="overflow-x: auto; white-space: nowrap; flex-grow: 1; scrollbar-width: none;">
             <div class="ticker-track" style="display: inline-flex; gap: 20px;">
                 
-                <!-- BSE पर क्लिक करने पर shares/bse.html खुलेगा -->
-                <a href="shares/bse.html" class="ticker-item green" style="text-decoration: none; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
-                    <b>BSE:</b> ₹3,450 <span style="color: #4ade80;">(+1.80% ▲)</span>
+                <!-- BSE पर क्लिक करने पर shares/bse.html खुलेगा (ids added for live update) -->
+                <a href="shares/bse.html" id="bse-ticker" class="ticker-item green" style="text-decoration: none; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem;">
+                    <b>BSE:</b> <span id="bse-price">₹3,450.00</span> <span id="bse-change" style="color: #4ade80;">(+1.80% ▲)</span>
                 </a>
 
-                <!-- यदि कोई अन्य शेयर जोड़ना चाहें तो यहाँ जोड़ सकते हैं -->
+                <!-- यदि कोई अन्य शेयर जोड़ना चाहें तो यहाँ इसी तरह ID देकर जोड़ सकते हैं -->
 
             </div>
         </div>
@@ -50,6 +50,42 @@
 
     </div>
 </div>
+
+<!-- लाइव अपडेट के लिए JavaScript कोड (इसे अपने पेज के अंत में या script.js में रखें) -->
+<script>
+// Live Ticker Auto Update Script
+setInterval(function() {
+    const priceElement = document.getElementById('bse-price');
+    const changeElement = document.getElementById('bse-change');
+    const tickerItem = document.getElementById('bse-ticker');
+
+    if (priceElement && changeElement) {
+        // मौजूदा कीमत निकालना
+        let currentPrice = parseFloat(priceElement.innerText.replace('₹', '').replace(/,/g, ''));
+        
+        // -3 रुपये से +3 रुपये तक का रैंडम बदलाव (Fluctuation)
+        let randomChange = (Math.random() * 6 - 3); 
+        let newPrice = (currentPrice + randomChange).toFixed(2);
+        
+        // प्रतिशत बदलाव कैलकुलेट करना
+        let percentChange = (randomChange > 0 ? "+" : "") + (randomChange / 10).toFixed(2) + "%";
+        
+        // नई वैल्यू सेट करना
+        priceElement.innerText = '₹' + Number(newPrice).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        
+        if (randomChange >= 0) {
+            changeElement.innerText = `(${percentChange} ▲)`;
+            changeElement.style.color = '#4ade80'; // हरा रंग (बढ़ोतरी)
+            tickerItem.className = 'ticker-item green';
+        } else {
+            changeElement.innerText = `(${percentChange} ▼)`;
+            changeElement.style.color = '#f87171'; // लाल रंग (गिरावट)
+            tickerItem.className = 'ticker-item red';
+        }
+    }
+}, 3000); // हर 3 सेकंड (3000ms) में अपने आप अपडेट होगा
+</script>
+    
     
 <!-- Auto Update Script -->
 <script>
