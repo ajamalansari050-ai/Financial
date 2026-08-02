@@ -27,6 +27,72 @@
 
     <!-- Main Dashboard Container -->
     <main class="dashboard-container">
+        <!-- Live Ticker Marquee Style -->
+<style>
+    .market-ticker-container {
+        width: 100%;
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        padding: 10px 0;
+    }
+    .market-ticker-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: tickerMove 25s linear infinite;
+    }
+    .market-ticker-track:hover {
+        animation-play-state: paused; /* Mouse rakhne par ruk jayega */
+    }
+    .ticker-item {
+        display: inline-block;
+        padding: 0 30px;
+        font-size: 0.95rem;
+        color: #fff;
+    }
+    @keyframes tickerMove {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+</style>
+
+<!-- Live Share Market Ticking Line -->
+<div class="market-ticker-container">
+    <div class="market-ticker-track" id="marketTicker">
+        <span class="ticker-item">📊 <strong data-en="Market Live" data-hi="मार्केट लाइव">मार्केट लाइव</strong></span>
+        <span class="ticker-item">BSE SENSEX: <span id="tSensex" style="color:#38bdf8;">74,235.40</span> <span style="color:#22c55e;">(+0.56%)</span></span>
+        <span class="ticker-item">NIFTY 50: <span id="tNifty" style="color:#22c55e;">22,510.20</span> <span style="color:#22c55e;">(+0.59%)</span></span>
+        <span class="ticker-item">BANK NIFTY: <span id="tBank" style="color:#eab308;">48,150.80</span> <span style="color:#ef4444;">(-0.18%)</span></span>
+        <span class="ticker-item">USD/INR: <span id="tUsd" style="color:#a855f7;">83.45</span> <span style="color:#22c55e;">(+0.06%)</span></span>
+        <span class="ticker-item">GOLD (10g): <span style="color:#facc15;">₹71,850</span> <span style="color:#22c55e;">(+0.40%)</span></span>
+    </div>
+</div>
+
+<!-- Auto Update Script -->
+<script>
+    function updateTickerValues() {
+        let sElem = document.getElementById("tSensex");
+        let nElem = document.getElementById("tNifty");
+        let bElem = document.getElementById("tBank");
+
+        if(sElem && nElem && bElem) {
+            let sVal = 74235.40 + (Math.random() * 15 - 7);
+            let nVal = 22510.20 + (Math.random() * 8 - 4);
+            let bVal = 48150.80 + (Math.random() * 20 - 10);
+
+            sElem.innerText = sVal.toFixed(2);
+            nElem.innerText = nVal.toFixed(2);
+            bElem.innerText = bVal.toFixed(2);
+        }
+    }
+
+    // Har 3 second mein values live update hongi
+    setInterval(updateTickerValues, 3000);
+</script>
         
         <!-- Hero Section -->
         <section class="hero-card">
