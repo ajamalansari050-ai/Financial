@@ -34,6 +34,7 @@
             background: #0f172a;
             color: #fff;
             font-size: 1rem;
+            box-sizing: border-box;
         }
         .calc-btn {
             width: 100%;
@@ -69,11 +70,17 @@
             </a>
         </div>
         
-        <!-- Round Language Switcher Button -->
+        <!-- Language Switcher Dropdown -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
-                <span id="langText">ENG</span>
-            </button>
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
         </div>
     </header>
 
@@ -82,18 +89,18 @@
         
         <!-- Page Title Section -->
         <section class="hero-card" style="text-align: center;">
-            <h1 data-en="Fixed Deposit Calculator" data-hi="एफडी (FD) कैलकुलेटर">एफडी (FD) कैलकुलेटर</h1>
-            <p data-en="Calculate returns on your fixed deposit investments." data-hi="अपने फिक्स्ड डिपॉजिट निवेश पर मिलने वाले रिटर्न की गणना करें।">अपने फिक्स्ड डिपॉजिट निवेश पर मिलने वाले रिटर्न की गणना करें।</p>
+            <h1 data-en="FD Calculator" data-hi="एफडी कैलकुलेटर">एफडी कैलकुलेटर</h1>
+            <p data-en="Calculate your Fixed Deposit maturity amount." data-hi="अपनी फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।">अपनी फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
         </section>
 
         <!-- FD Tool Box -->
         <div class="calc-container">
             <div class="input-group">
-                <label data-en="Principal Amount (₹)" data-hi="मूल निवेश राशि (₹)">मूल निवेश राशि (₹)</label>
+                <label data-en="Total Investment (₹)" data-hi="कुल निवेश राशि (₹)">कुल निवेश राशि (₹)</label>
                 <input type="number" id="fdPrincipal" value="100000">
             </div>
             <div class="input-group">
-                <label data-en="Annual Interest Rate (%)" data-hi="वार्षिक ब्याज दर (%)">वार्षिक ब्याज दर (%)</label>
+                <label data-en="Interest Rate (% P.A.)" data-hi="ब्याज दर (% वार्षिक)">ब्याज दर (% वार्षिक)</label>
                 <input type="number" id="fdRate" value="6.5">
             </div>
             <div class="input-group">
@@ -101,9 +108,9 @@
                 <input type="number" id="fdYears" value="5">
             </div>
             
-            <button class="calc-btn" onclick="calculateAndShowFD()" data-en="Calculate FD" data-hi="FD की गणना करें">FD की गणना करें</button>
+            <button class="calc-btn" onclick="calculateFD()" data-en="Calculate FD" data-hi="FD की गणना करें">FD की गणना करें</button>
             
-            <div class="calc-result" id="fdResult">मेच्योरिटी राशि: ₹0</div>
+            <div class="calc-result" id="fdResult" data-en="Maturity Amount: ₹0" data-hi="मेच्योरिटी राशि: ₹0">मेच्योरिटी राशि: ₹0</div>
         </div>
 
         <!-- Back to Calculator Hub -->
@@ -124,17 +131,19 @@
     </footer>
 
     <!-- Scripts Linking -->
-    <script src="../js/script.js"></script>
     <script src="../js/language.js"></script>
-    <script src="../js/fd.js"></script>
     <script>
-        function calculateAndShowFD() {
-            let p = parseFloat(document.getElementById('fdPrincipal').value);
-            let r = parseFloat(document.getElementById('fdRate').value);
-            let y = parseFloat(document.getElementById('fdYears').value);
+        function calculateFD() {
+            let p = parseFloat(document.getElementById('fdPrincipal').value) || 0;
+            let r = parseFloat(document.getElementById('fdRate').value) || 0;
+            let t = parseFloat(document.getElementById('fdYears').value) || 0;
             
-            let res = calculateFD(p, r, y);
-            document.getElementById('fdResult').innerText = (currentLang === 'hi' ? 'मेच्योरिटी राशि: ₹' : 'Maturity Amount: ₹') + res;
+            // Compound Interest Formula for FD: A = P * (1 + r/100)^t
+            let maturity = p * Math.pow((1 + r / 100), t);
+            
+            let activeLang = localStorage.getItem("fengoo_lang") || "hi";
+            let labelText = (activeLang === 'hi') ? 'मेच्योरिटी राशि: ₹' : 'Maturity Amount: ₹';
+            document.getElementById('fdResult').innerText = labelText + (isNaN(maturity) ? 0 : maturity.toFixed(2));
         }
     </script>
 </body>
