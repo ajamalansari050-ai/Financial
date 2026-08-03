@@ -31,34 +31,34 @@
             <h2 style="text-align: center; margin-bottom: 10px; color: #f8fafc;" data-en="Contact Us" data-hi="हमसे संपर्क करें">हमसे संपर्क करें</h2>
             <p style="text-align: center; color: #94a3b8; font-size: 0.9rem; margin-bottom: 25px;" data-en="Fill in your details and description below to reach out to us." data-hi="हमसे बात करने के लिए नीचे अपना विवरण और विवरण (डिस्क्रिप्शन) भरें।">हमसे बात करने के लिए नीचे अपना विवरण और विवरण (डिस्क्रिप्शन) भरें।</p>
 
-            <!-- फॉर्म -->
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <!-- WhatsApp फॉर्म (जैसे ही यूजर सबमिट करेगा, सीधे आपके WhatsApp पर मैसेज आएगा) -->
+            <form onsubmit="sendToWhatsApp(event)">
                 
                 <!-- नाम का बॉक्स -->
                 <div class="form-group">
                     <label data-en="Your Name:" data-hi="आपका नाम (Name):">आपका नाम (Name):</label>
-                    <input type="text" name="name" required placeholder="अपना पूरा नाम दर्ज करें">
+                    <input type="text" id="waName" required placeholder="अपना पूरा नाम दर्ज करें">
                 </div>
 
                 <!-- ईमेल का बॉक्स -->
                 <div class="form-group">
                     <label data-en="Your Email:" data-hi="आपका ईमेल (Email):">आपका ईमेल (Email):</label>
-                    <input type="email" name="email" required placeholder="example@gmail.com">
+                    <input type="email" id="waEmail" required placeholder="example@gmail.com">
                 </div>
 
                 <!-- डिस्क्रिप्शन / संदेश का बॉक्स -->
                 <div class="form-group">
                     <label data-en="Description / Message:" data-hi="डिस्क्रिप्शन / संदेश (Description):">डिस्क्रिप्शन / संदेश (Description):</label>
-                    <textarea name="message" required placeholder="अपना संदेश या विवरण यहाँ विस्तार से लिखें..."></textarea>
+                    <textarea id="waMessage" rows="4" required placeholder="अपना संदेश या विवरण यहाँ विस्तार से लिखें..."></textarea>
                 </div>
 
                 <!-- भेजने वाला बटन -->
-                <button type="submit" class="submit-btn" data-en="Send Message" data-hi="संदेश भेजें">संदेश भेजें</button>
+                <button type="submit" class="submit-btn" data-en="Send on WhatsApp" data-hi="व्हाट्सएप पर भेजें">व्हाट्सएप पर भेजें</button>
             </form>
 
             <!-- होम पर वापस जाने का लिंक -->
-            <div class="back-link">
-                <a href="index.html" data-en="← Back to Home" data-hi="← होम पर वापस जाएं">← होम पर वापस जाएं</a>
+            <div class="back-link" style="margin-top: 20px; text-align: center;">
+                <a href="index.html" style="color: #38bdf8; text-decoration: none;" data-en="← Back to Home" data-hi="← होम पर वापस जाएं">← होम पर वापस जाएं</a>
             </div>
         </div>
     </main>
@@ -68,40 +68,24 @@
         <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
     </footer>
 
+    <!-- जावास्क्रिप्ट स्क्रिप्ट्स -->
     <script src="js/script.js"></script>
     <script src="js/language.js"></script>
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('waName').value;
+            let email = document.getElementById('waEmail').value;
+            let message = document.getElementById('waMessage').value;
+            
+            // आपका व्हाट्सएप नंबर
+            let phoneNumber = "916209516228"; 
+            
+            let url = `https://wa.me/${phoneNumber}?text=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMessage:%20${encodeURIComponent(message)}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
-
-<form onsubmit="sendToWhatsApp(event)">
-    <div class="input-group">
-        <label>Your Name:</label>
-        <input type="text" id="waName" required>
-    </div>
-    <div class="input-group">
-        <label>Your Email:</label>
-        <input type="email" id="waEmail" required>
-    </div>
-    <div class="input-group">
-        <label>Description / Message:</label>
-        <textarea id="waMessage" rows="4" required></textarea>
-    </div>
-    <button type="submit" class="calc-btn">Send on WhatsApp</button>
-</form>
-
-<script>
-    function sendToWhatsApp(event) {
-        event.preventDefault();
-        
-        let name = document.getElementById('waName').value;
-        let email = document.getElementById('waEmail').value;
-        let message = document.getElementById('waMessage').value;
-        
-        // अपना WhatsApp नंबर यहाँ डालें (देश के कोड के साथ, जैसे 91 के बाद अपना नंबर)
-        let phoneNumber = "+916209516228"; // <-- यहाँ अपना व्हाट्सएप नंबर लिखें
-        
-        let url = `https://wa.me/${phoneNumber}?text=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMessage:%20${encodeURIComponent(message)}`;
-        
-        window.open(url, '_blank');
-    }
-</script>
