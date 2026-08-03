@@ -34,6 +34,7 @@
             background: #0f172a;
             color: #fff;
             font-size: 1rem;
+            box-sizing: border-box;
         }
         .calc-btn {
             width: 100%;
@@ -69,11 +70,17 @@
             </a>
         </div>
         
-        <!-- Round Language Switcher Button -->
+        <!-- Language Switcher Dropdown -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
-                <span id="langText">ENG</span>
-            </button>
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાती</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
         </div>
     </header>
 
@@ -82,8 +89,8 @@
         
         <!-- Page Title Section -->
         <section class="hero-card" style="text-align: center;">
-            <h1 data-en="BMI Calculator" data-hi="बीएमआई (BMI) कैलकुलेटर">बीएमआई (BMI) कैलकुलेटर</h1>
-            <p data-en="Check your Body Mass Index to monitor health fitness." data-hi="अपनी स्वास्थ्य फिटनेस की निगरानी के लिए बॉडी मास इंडेक्स जांचें।">अपनी स्वास्थ्य फिटनेस की निगरानी के लिए बॉडी मास इंडेक्स जांचें।</p>
+            <h1 data-en="BMI Calculator" data-hi="बीएमआई कैलकुलेटर">बीएमआई कैलकुलेटर</h1>
+            <p data-en="Check your Body Mass Index and fitness level." data-hi="अपने बॉडी मास इंडेक्स (BMI) और फिटनेस स्तर की जांच करें।">अपने बॉडी मास इंडेक्स (BMI) और फिटनेस स्तर की जांच करें।</p>
         </section>
 
         <!-- BMI Tool Box -->
@@ -99,7 +106,7 @@
             
             <button class="calc-btn" onclick="calculateBMI()" data-en="Calculate BMI" data-hi="BMI की गणना करें">BMI की गणना करें</button>
             
-            <div class="calc-result" id="bmiResult">BMI: --</div>
+            <div class="calc-result" id="bmiResult" data-en="BMI: 0" data-hi="BMI: 0">BMI: 0</div>
         </div>
 
         <!-- Back to Calculator Hub -->
@@ -120,33 +127,38 @@
     </footer>
 
     <!-- Scripts Linking -->
-    <script src="../js/script.js"></script>
     <script src="../js/language.js"></script>
     <script>
         function calculateBMI() {
-            let weight = parseFloat(document.getElementById('bmiWeight').value);
-            let heightCm = parseFloat(document.getElementById('bmiHeight').value);
+            let weight = parseFloat(document.getElementById('bmiWeight').value) || 0;
+            let heightCm = parseFloat(document.getElementById('bmiHeight').value) || 0;
             
-            if(!weight || !heightCm) {
-                document.getElementById('bmiResult').innerText = currentLang === 'hi' ? 'कृपया सही मान दर्ज करें!' : 'Please enter valid values!';
+            let activeLang = localStorage.getItem("fengoo_lang") || "hi";
+
+            if (weight <= 0 || heightCm <= 0) {
+                document.getElementById('bmiResult').innerText = (activeLang === 'hi') ? 'कृपया सही वजन और लंबाई दर्ज करें!' : 'Please enter valid weight and height!';
                 return;
             }
-            
+
             let heightM = heightCm / 100;
-            let bmi = (weight / (heightM * heightM)).toFixed(1);
-            let status = '';
+            let bmi = weight / (heightM * heightM);
             
-            if(bmi < 18.5) {
-                status = currentLang === 'hi' ? ' (कम वजन / Underweight)' : ' (Underweight)';
-            } else if(bmi >= 18.5 && bmi < 24.9) {
-                status = currentLang === 'hi' ? ' (सामान्य / Normal)' : ' (Normal weight)';
-            } else if(bmi >= 25 && bmi < 29.9) {
-                status = currentLang === 'hi' ? ' (अधिक वजन / Overweight)' : ' (Overweight)';
+            let status = "";
+            if (activeLang === 'hi') {
+                if (bmi < 18.5) status = "कम वजन (Underweight)";
+                else if (bmi >= 18.5 && bmi < 24.9) status = "सामान्य (Normal)";
+                else if (bmi >= 25 && bmi < 29.9) status = "अधिक वजन (Overweight)";
+                else status = "मोपापन (Obese)";
+                
+                document.getElementById('bmiResult').innerText = `BMI: ${bmi.toFixed(2)} (${status})`;
             } else {
-                status = currentLang === 'hi' ? ' (मोटापा / Obesity)' : ' (Obesity)';
+                if (bmi < 18.5) status = "Underweight";
+                else if (bmi >= 18.5 && bmi < 24.9) status = "Normal";
+                else if (bmi >= 25 && bmi < 29.9) status = "Overweight";
+                else status = "Obese";
+                
+                document.getElementById('bmiResult').innerText = `BMI: ${bmi.toFixed(2)} (${status})`;
             }
-            
-            document.getElementById('bmiResult').innerText = `BMI: ${bmi}${status}`;
         }
     </script>
 </body>
