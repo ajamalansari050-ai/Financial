@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FD Calculator - Fengoo</title>
+    <title>RD Calculator - Fengoo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <style>
@@ -89,28 +89,28 @@
         
         <!-- Page Title Section -->
         <section class="hero-card" style="text-align: center;">
-            <h1 data-en="FD Calculator" data-hi="एफडी कैलकुलेटर">एफडी कैलकुलेटर</h1>
-            <p data-en="Calculate your Fixed Deposit maturity amount." data-hi="अपनी फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।">अपनी फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
+            <h1 data-en="RD Calculator" data-hi="आरडी कैलकुलेटर">आरडी कैलकुलेटर</h1>
+            <p data-en="Calculate your Recurring Deposit maturity amount." data-hi="अपनी रिकरिंग डिपॉजिट मेच्योरिटी राशि की गणना करें।">अपनी रिकरिंग डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
         </section>
 
-        <!-- FD Tool Box -->
+        <!-- RD Tool Box -->
         <div class="calc-container">
             <div class="input-group">
-                <label data-en="Total Investment (₹)" data-hi="कुल निवेश राशि (₹)">कुल निवेश राशि (₹)</label>
-                <input type="number" id="fdPrincipal" value="100000">
+                <label data-en="Monthly Deposit (₹)" data-hi="मासिक जमा राशि (₹)">मासिक जमा राशि (₹)</label>
+                <input type="number" id="rdMonthly" value="5000">
             </div>
             <div class="input-group">
                 <label data-en="Interest Rate (% P.A.)" data-hi="ब्याज दर (% वार्षिक)">ब्याज दर (% वार्षिक)</label>
-                <input type="number" id="fdRate" value="6.5">
+                <input type="number" id="rdRate" value="6.5">
             </div>
             <div class="input-group">
-                <label data-en="Time Period (Years)" data-hi="समय अवधि (वर्ष)">समय अवधि (वर्ष)</label>
-                <input type="number" id="fdYears" value="5">
+                <label data-en="Time Period (Months)" data-hi="समय अवधि (महीने)">समय अवधि (महीने)</label>
+                <input type="number" id="rdMonths" value="60">
             </div>
             
-            <button class="calc-btn" onclick="calculateFD()" data-en="Calculate FD" data-hi="FD की गणना करें">FD की गणना करें</button>
+            <button class="calc-btn" onclick="calculateRD()" data-en="Calculate RD" data-hi="RD की गणना करें">RD की गणना करें</button>
             
-            <div class="calc-result" id="fdResult" data-en="Maturity Amount: ₹0" data-hi="मेच्योरिटी राशि: ₹0">मेच्योरिटी राशि: ₹0</div>
+            <div class="calc-result" id="rdResult" data-en="Maturity Amount: ₹0" data-hi="मेच्योरिटी राशि: ₹0">मेच्योरिटी राशि: ₹0</div>
         </div>
 
         <!-- Back to Calculator Hub -->
@@ -133,17 +133,18 @@
     <!-- Scripts Linking -->
     <script src="../js/language.js"></script>
     <script>
-        function calculateFD() {
-            let p = parseFloat(document.getElementById('fdPrincipal').value) || 0;
-            let r = parseFloat(document.getElementById('fdRate').value) || 0;
-            let t = parseFloat(document.getElementById('fdYears').value) || 0;
+        function calculateRD() {
+            let p = parseFloat(document.getElementById('rdMonthly').value) || 0;
+            let r = parseFloat(document.getElementById('rdRate').value) || 0;
+            let n = parseInt(document.getElementById('rdMonths').value) || 0;
             
-            // Compound Interest Formula for FD: A = P * (1 + r/100)^t
-            let maturity = p * Math.pow((1 + r / 100), t);
+            // RD Formula Approximation: Maturity = P * n + P * (n * (n + 1) / 2400) * r
+            let interest = p * (n * (n + 1) / 2400) * r;
+            let maturity = (p * n) + interest;
             
             let activeLang = localStorage.getItem("fengoo_lang") || "hi";
             let labelText = (activeLang === 'hi') ? 'मेच्योरिटी राशि: ₹' : 'Maturity Amount: ₹';
-            document.getElementById('fdResult').innerText = labelText + (isNaN(maturity) ? 0 : maturity.toFixed(2));
+            document.getElementById('rdResult').innerText = labelText + (isNaN(maturity) ? 0 : maturity.toFixed(2));
         }
     </script>
 </body>
