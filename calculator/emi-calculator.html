@@ -34,6 +34,7 @@
             background: #0f172a;
             color: #fff;
             font-size: 1rem;
+            box-sizing: border-box;
         }
         .calc-btn {
             width: 100%;
@@ -69,11 +70,17 @@
             </a>
         </div>
         
-        <!-- Round Language Switcher Button -->
+        <!-- Language Switcher Dropdown -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
-                <span id="langText">ENG</span>
-            </button>
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
         </div>
     </header>
 
@@ -124,17 +131,19 @@
     </footer>
 
     <!-- Scripts Linking -->
-    <script src="../js/script.js"></script>
     <script src="../js/language.js"></script>
-    <script src="../js/emi.js"></script>
     <script>
         function calculateAndShowEMI() {
-            let p = parseFloat(document.getElementById('emiLoan').value);
-            let r = parseFloat(document.getElementById('emiRate').value);
-            let n = parseInt(document.getElementById('emiTenure').value);
+            let p = parseFloat(document.getElementById('emiLoan').value) || 0;
+            let r = parseFloat(document.getElementById('emiRate').value) || 0;
+            let n = parseInt(document.getElementById('emiTenure').value) || 0;
             
-            let res = calculateEMI(p, r, n);
-            document.getElementById('emiResult').innerText = (currentLang === 'hi' ? 'मासिक EMI: ₹' : 'Monthly EMI: ₹') + res;
+            let monthlyRate = (r / 12) / 100;
+            let emi = (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
+            
+            let activeLang = localStorage.getItem("fengoo_lang") || "hi";
+            let labelText = (activeLang === 'hi') ? 'मासिक EMI: ₹' : 'Monthly EMI: ₹';
+            document.getElementById('emiResult').innerText = labelText + (isNaN(emi) ? 0 : emi.toFixed(2));
         }
     </script>
 </body>
