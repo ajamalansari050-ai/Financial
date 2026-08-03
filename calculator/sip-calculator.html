@@ -34,6 +34,7 @@
             background: #0f172a;
             color: #fff;
             font-size: 1rem;
+            box-sizing: border-box;
         }
         .calc-btn {
             width: 100%;
@@ -69,11 +70,17 @@
             </a>
         </div>
         
-        <!-- Round Language Switcher Button -->
+        <!-- Language Switcher Dropdown -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
-                <span id="langText">ENG</span>
-            </button>
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
         </div>
     </header>
 
@@ -83,7 +90,7 @@
         <!-- Page Title Section -->
         <section class="hero-card" style="text-align: center;">
             <h1 data-en="SIP Calculator" data-hi="एसआईपी कैलकुलेटर">एसआईपी कैलकुलेटर</h1>
-            <p data-en="Estimate your mutual fund investment growth over time." data-hi="समय के साथ अपने म्यूचुअल फंड निवेश की वृद्धि का अनुमान लगाएं।">समय के साथ अपने म्यूचुअल फंड निवेश की वृद्धि का अनुमान लगाएं।</p>
+            <p data-en="Estimate your mutual fund investment returns." data-hi="अपने म्यूचुअल फंड निवेश रिटर्न का अनुमान लगाएं।">अपने म्यूचुअल फंड निवेश रिटर्न का अनुमान लगाएं।</p>
         </section>
 
         <!-- SIP Tool Box -->
@@ -101,9 +108,9 @@
                 <input type="number" id="sipYears" value="10">
             </div>
             
-            <button class="calc-btn" onclick="calculateAndShowSIP()" data-en="Calculate SIP" data-hi="SIP की गणना करें">SIP की गणना करें</button>
+            <button class="calc-btn" onclick="calculateSIP()" data-en="Calculate SIP" data-hi="SIP की गणना करें">SIP की गणना करें</button>
             
-            <div class="calc-result" id="sipResult">कुल अनुमानित राशि: ₹0</div>
+            <div class="calc-result" id="sipResult" data-en="Total Value: ₹0" data-hi="कुल वैल्यू: ₹0">कुल वैल्यू: ₹0</div>
         </div>
 
         <!-- Back to Calculator Hub -->
@@ -124,17 +131,20 @@
     </footer>
 
     <!-- Scripts Linking -->
-    <script src="../js/script.js"></script>
     <script src="../js/language.js"></script>
-    <script src="../js/sip.js"></script>
     <script>
-        function calculateAndShowSIP() {
-            let p = parseFloat(document.getElementById('sipAmount').value);
-            let r = parseFloat(document.getElementById('sipRate').value);
-            let y = parseFloat(document.getElementById('sipYears').value);
+        function calculateSIP() {
+            let p = parseFloat(document.getElementById('sipAmount').value) || 0;
+            let annualRate = parseFloat(document.getElementById('sipRate').value) || 0;
+            let years = parseFloat(document.getElementById('sipYears').value) || 0;
             
-            let res = calculateSIP(p, r, y);
-            document.getElementById('sipResult').innerText = (currentLang === 'hi' ? 'कुल अनुमानित राशि: ₹' : 'Total Maturity Value: ₹') + res;
+            let i = (annualRate / 12) / 100;
+            let n = years * 12;
+            let maturityValue = p * ((Math.pow(1 + i, n) - 1) / i) * (1 + i);
+            
+            let activeLang = localStorage.getItem("fengoo_lang") || "hi";
+            let labelText = (activeLang === 'hi') ? 'कुल वैल्यू: ₹' : 'Total Value: ₹';
+            document.getElementById('sipResult').innerText = labelText + (isNaN(maturityValue) ? 0 : maturityValue.toFixed(2));
         }
     </script>
 </body>
