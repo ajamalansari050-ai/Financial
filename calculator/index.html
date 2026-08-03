@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Calculators - Fengoo</title>
+    <title>Financial Calculators Hub - Fengoo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
@@ -17,96 +17,94 @@
             </a>
         </div>
         
-        <!-- Round Language Switcher Button -->
+        <!-- Language Switcher Dropdown -->
         <div class="lang-switcher-container">
-    <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
-        <option value="hi">हिंदी</option>
-        <option value="en">English</option>
-        <option value="bn">বাংলা</option>
-        <option value="mr">मराठी</option>
-        <option value="gu">ગુજરાતી</option>
-        <option value="ta">தமிழ்</option>
-        <option value="te">తెలుగు</option>
-    </select>
-</div>
-
-        
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
+        </div>
     </header>
 
     <!-- Main Dashboard Container -->
     <main class="dashboard-container">
         
         <!-- Page Title Section -->
-        <section class="hero-card">
+        <section class="hero-card" style="text-align: center; margin-bottom: 25px;">
             <h1 data-en="Financial Calculators Hub" data-hi="वित्तीय कैलकुलेटर हब">वित्तीय कैलकुलेटर हब</h1>
-            <p data-en="Choose a calculator below to plan your loans, investments, and health accurately." data-hi="अपने लोन, निवेश और स्वास्थ्य की सटीक योजना बनाने के लिए नीचे एक कैलकुलेटर चुनें।">अपने लोन, निवेश और स्वास्थ्य की सटीक योजना बनाने के लिए नीचे एक कैलकुलेटर चुनें।</p>
+            <p data-en="Choose a calculator below to plan your loans, investments, and health accurately." data-hi="अपने लोन, निवेश और स्वास्थ्य की सटीक योजना बनाने के लिए नीचे एक कैलकुलेटर चुनें।" style="color: #94a3b8;">अपने लोन, निवेश और स्वास्थ्य की सटीक योजना बनाने के लिए नीचे एक कैलकुलेटर चुनें।</p>
         </section>
 
-        <!-- Calculators Grid (All 8 Calculators) -->
-        <div class="dashboard-grid">
+        <!-- Calculators Grid (All Calculators) -->
+        <div class="dashboard-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
             
             <!-- EMI Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">🧮</div>
-                <h3 data-en="EMI Calculator" data-hi="ईएमआई कैलकुलेटर">ईएमआई कैलकुलेटर</h3>
-                <p data-en="Calculate monthly loan instalments easily." data-hi="आसानी से मासिक लोन किस्त की गणना करें।">आसानी से मासिक लोन किस्त की गणना करें।</p>
-                <a href="emi-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🧮</div>
+                <h3 data-en="EMI Calculator" data-hi="ईएमआई कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">ईएमआई कैलकुलेटर</h3>
+                <p data-en="Calculate monthly loan instalments easily." data-hi="आसानी से मासिक लोन किस्त की गणना करें।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">आसानी से मासिक लोन किस्त की गणना करें।</p>
+                <a href="emi-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
             <!-- SIP Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">📈</div>
-                <h3 data-en="SIP Calculator" data-hi="एसआईपी कैलकुलेटर">एसआईपी कैलकुलेटर</h3>
-                <p data-en="Estimate your mutual fund returns." data-hi="अपने म्यूचुअल फंड रिटर्न का अनुमान लगाएं।">अपने म्यूचुअल फंड रिटर्न का अनुमान लगाएं।</p>
-                <a href="sip-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📈</div>
+                <h3 data-en="SIP Calculator" data-hi="एसआईपी कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">एसआईपी कैलकुलेटर</h3>
+                <p data-en="Estimate your mutual fund returns." data-hi="अपने म्यूचुअल फंड रिटर्न का अनुमान लगाएं।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">अपने म्यूचुअल फंड रिटर्न का अनुमान लगाएं।</p>
+                <a href="sip-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
             <!-- FD Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">💰</div>
-                <h3 data-en="FD Calculator" data-hi="एफडी कैलकुलेटर">एफडी कैलकुलेटर</h3>
-                <p data-en="Calculate fixed deposit maturity amount." data-hi="फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।">फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
-                <a href="fd-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">💰</div>
+                <h3 data-en="FD Calculator" data-hi="एफडी कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">एफडी कैलकुलेटर</h3>
+                <p data-en="Calculate fixed deposit maturity amount." data-hi="फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">फिक्स्ड डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
+                <a href="fd-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
             <!-- RD Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">🔄</div>
-                <h3 data-en="RD Calculator" data-hi="आरडी कैलकुलेटर">आरडी कैलकुलेटर</h3>
-                <p data-en="Calculate recurring deposit returns." data-hi="रिकरिंग डिपॉजिट रिटर्न की गणना करें।">रिकरिंग डिपॉजिट रिटर्न की गणना करें।</p>
-                <a href="rd-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">🔄</div>
+                <h3 data-en="RD Calculator" data-hi="आरडी कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">आरडी कैलकुलेटर</h3>
+                <p data-en="Calculate recurring deposit returns." data-hi="रिकरिंग डिपॉजिट रिटर्न की गणना करें।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">रिकरिंग डिपॉजिट रिटर्न की गणना करें।</p>
+                <a href="rd-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
             <!-- Loan Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">💸</div>
-                <h3 data-en="Loan Calculator" data-hi="लोन कैलकुलेटर">लोन कैलकुलेटर</h3>
-                <p data-en="Plan your overall loan eligibility & details." data-hi="अपने लोन की पात्रता और विवरण की योजना बनाएं।">अपने लोन की पात्रता और विवरण की योजना बनाएं।</p>
-                <a href="loan-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">💸</div>
+                <h3 data-en="Loan Calculator" data-hi="लोन कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">लोन कैलकुलेटर</h3>
+                <p data-en="Plan your overall loan eligibility & details." data-hi="अपने लोन की पात्रता और विवरण की योजना बनाएं।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">अपने लोन की पात्रता और विवरण की योजना बनाएं।</p>
+                <a href="loan-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
             <!-- GST Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">📊</div>
-                <h3 data-en="GST Calculator" data-hi="जीएसटी कैलकुलेटर">जीएसटी कैलकुलेटर</h3>
-                <p data-en="Calculate goods and services tax instantly." data-hi="तुरंत वस्तु और सेवा कर (GST) की गणना करें।">तुरंत वस्तु और सेवा कर (GST) की गणना करें।</p>
-                <a href="gst-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">📊</div>
+                <h3 data-en="GST Calculator" data-hi="जीएसटी कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">जीएसटी कैलकुलेटर</h3>
+                <p data-en="Calculate goods and services tax instantly." data-hi="तुरंत वस्तु और सेवा कर (GST) की गणना करें।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">तुरंत वस्तु और सेवा कर (GST) की गणना करें।</p>
+                <a href="gst-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
             <!-- Age Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">⏳</div>
-                <h3 data-en="Age Calculator" data-hi="आयु कैलकुलेटर">आयु कैलकुलेटर</h3>
-                <p data-en="Calculate your exact age in years and months." data-hi="वर्षों और महीनों में अपनी सटीक उम्र की गणना करें।">वर्षों और महीनों में अपनी सटीक उम्र की गणना करें।</p>
-                <a href="age-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">⏳</div>
+                <h3 data-en="Age Calculator" data-hi="आयु कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">आयु कैलकुलेटर</h3>
+                <p data-en="Calculate your exact age in years and months." data-hi="वर्षों और महीनों में अपनी सटीक उम्र की गणना करें।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">वर्षों और महीनों में अपनी सटीक उम्र की गणना करें।</p>
+                <a href="age-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
             <!-- BMI Calculator -->
-            <div class="dash-card">
-                <div class="card-icon">⚖️</div>
-                <h3 data-en="BMI Calculator" data-hi="बीएमआई कैलकुलेटर">बीएमआई कैलकुलेटर</h3>
-                <p data-en="Check your Body Mass Index and fitness level." data-hi="अपने बॉडी मास इंडेक्स और फिटनेस स्तर की जांच करें।">अपने बॉडी मास इंडेक्स और फिटनेस स्तर की जांच करें।</p>
-                <a href="bmi-calculator.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
+            <div class="dash-card" style="background: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 10px;">⚖️</div>
+                <h3 data-en="BMI Calculator" data-hi="बीएमआई कैलकुलेटर" style="color: #f8fafc; margin-bottom: 8px;">बीएमआई कैलकुलेटर</h3>
+                <p data-en="Check your Body Mass Index and fitness level." data-hi="अपने बॉडी मास इंडेक्स और फिटनेस स्तर की जांच करें।" style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;">अपने बॉडी मास इंडेक्स और फिटनेस स्तर की जांच करें।</p>
+                <a href="bmi-calculator.html" class="btn" style="display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Use Tool" data-hi="टूल इस्तेमाल करें">टूल इस्तेमाल करें</a>
             </div>
 
         </div>
@@ -119,17 +117,17 @@
     </main>
 
     <!-- Footer Links -->
-    <footer class="dashboard-footer">
+    <footer class="dashboard-footer" style="text-align: center; padding: 20px; color: #64748b; font-size: 0.85rem; border-top: 1px solid #334155; margin-top: 40px;">
         <div class="footer-links">
-            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
-            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
-            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति" style="color: #94a3b8; text-decoration: none;">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें" style="color: #94a3b8; text-decoration: none;">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण" style="color: #94a3b8; text-decoration: none;">अस्वीकरण</a>
         </div>
-        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+        <p style="margin-top: 10px;">&copy; 2026 Fengoo.in. All rights reserved.</p>
     </footer>
 
     <!-- Scripts -->
-    <script src="../js/script.js"></script>
     <script src="../js/language.js"></script>
 </body>
-</html>
+            </html>
+    
