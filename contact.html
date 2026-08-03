@@ -73,3 +73,35 @@
 </body>
 </html>
 
+<form onsubmit="sendToWhatsApp(event)">
+    <div class="input-group">
+        <label>Your Name:</label>
+        <input type="text" id="waName" required>
+    </div>
+    <div class="input-group">
+        <label>Your Email:</label>
+        <input type="email" id="waEmail" required>
+    </div>
+    <div class="input-group">
+        <label>Description / Message:</label>
+        <textarea id="waMessage" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="calc-btn">Send on WhatsApp</button>
+</form>
+
+<script>
+    function sendToWhatsApp(event) {
+        event.preventDefault();
+        
+        let name = document.getElementById('waName').value;
+        let email = document.getElementById('waEmail').value;
+        let message = document.getElementById('waMessage').value;
+        
+        // अपना WhatsApp नंबर यहाँ डालें (देश के कोड के साथ, जैसे 91 के बाद अपना नंबर)
+        let phoneNumber = "+916209516228"; // <-- यहाँ अपना व्हाट्सएप नंबर लिखें
+        
+        let url = `https://wa.me/${phoneNumber}?text=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMessage:%20${encodeURIComponent(message)}`;
+        
+        window.open(url, '_blank');
+    }
+</script>
