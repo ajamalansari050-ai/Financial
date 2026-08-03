@@ -34,6 +34,7 @@
             background: #0f172a;
             color: #fff;
             font-size: 1rem;
+            box-sizing: border-box;
         }
         .calc-btn {
             width: 100%;
@@ -69,11 +70,17 @@
             </a>
         </div>
         
-        <!-- Round Language Switcher Button -->
+        <!-- Language Switcher Dropdown -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
-                <span id="langText">ENG</span>
-            </button>
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
         </div>
     </header>
 
@@ -82,28 +89,28 @@
         
         <!-- Page Title Section -->
         <section class="hero-card" style="text-align: center;">
-            <h1 data-en="Recurring Deposit Calculator" data-hi="आरडी (RD) कैलकुलेटर">आरडी (RD) कैलकुलेटर</h1>
-            <p data-en="Calculate maturity amount for your recurring deposits." data-hi="अपनी रिकरिंग डिपॉजिट (RD) के लिए मेच्योरिटी राशि की गणना करें।">अपनी रिकरिंग डिपॉजिट (RD) के लिए मेच्योरिटी राशि की गणना करें।</p>
+            <h1 data-en="RD Calculator" data-hi="आरडी कैलकुलेटर">आरडी कैलकुलेटर</h1>
+            <p data-en="Calculate your Recurring Deposit maturity amount." data-hi="अपनी रिकरिंग डिपॉजिट मेच्योरिटी राशि की गणना करें।">अपनी रिकरिंग डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
         </section>
 
         <!-- RD Tool Box -->
         <div class="calc-container">
             <div class="input-group">
                 <label data-en="Monthly Deposit (₹)" data-hi="मासिक जमा राशि (₹)">मासिक जमा राशि (₹)</label>
-                <input type="number" id="rdAmount" value="2000">
+                <input type="number" id="rdMonthly" value="5000">
             </div>
             <div class="input-group">
-                <label data-en="Annual Interest Rate (%)" data-hi="वार्षिक ब्याज दर (%)">वार्षिक ब्याज दर (%)</label>
+                <label data-en="Interest Rate (% P.A.)" data-hi="ब्याज दर (% वार्षिक)">ब्याज दर (% वार्षिक)</label>
                 <input type="number" id="rdRate" value="6.5">
             </div>
             <div class="input-group">
                 <label data-en="Time Period (Months)" data-hi="समय अवधि (महीने)">समय अवधि (महीने)</label>
-                <input type="number" id="rdMonths" value="12">
+                <input type="number" id="rdMonths" value="60">
             </div>
             
-            <button class="calc-btn" onclick="calculateAndShowRD()" data-en="Calculate RD" data-hi="RD की गणना करें">RD की गणना करें</button>
+            <button class="calc-btn" onclick="calculateRD()" data-en="Calculate RD" data-hi="RD की गणना करें">RD की गणना करें</button>
             
-            <div class="calc-result" id="rdResult">मेच्योरिटी राशि: ₹0</div>
+            <div class="calc-result" id="rdResult" data-en="Maturity Amount: ₹0" data-hi="मेच्योरिटी राशि: ₹0">मेच्योरिटी राशि: ₹0</div>
         </div>
 
         <!-- Back to Calculator Hub -->
@@ -124,30 +131,19 @@
     </footer>
 
     <!-- Scripts Linking -->
-    <script src="../js/script.js"></script>
     <script src="../js/language.js"></script>
     <script>
-        function calculateRD(p, annualRate, months) {
-            let r = annualRate / (12 * 100);
-            let maturity = 0;
-            for(let i = 0; i < months; i++) {
-                let n = (months - i) / 12;
-                maturity += p * (1 + r * (months - i)); // Simplified RD formula approximation
-            }
-            // Standard RD compounding quarterly formula alternative
-            let total = p * months;
-            let interest = (p * months * (months + 1) / 2) * (r / 12); // Approximate estimation
-            let finalAmt = total + (p * (months * (months + 1)) / 2) * (annualRate / (12 * 100));
-            return Math.round(finalAmt);
-        }
-
-        function calculateAndShowRD() {
-            let p = parseFloat(document.getElementById('rdAmount').value);
-            let r = parseFloat(document.getElementById('rdRate').value);
-            let m = parseInt(document.getElementById('rdMonths').value);
+        function calculateRD() {
+            let p = parseFloat(document.getElementById('rdMonthly').value) || 0;
+            let r = parseFloat(document.getElementById('rdRate').value) || 0;
+            let n = parseInt(document.getElementById('rdMonths').value) || 0;
             
-            let res = calculateRD(p, r, m);
-            document.getElementById('rdResult').innerText = (currentLang === 'hi' ? 'मेच्योरिटी राशि: ₹' : 'Maturity Amount: ₹') + res;
+            let interest = p * (n * (n + 1) / 2400) * r;
+            let maturity = (p * n) + interest;
+            
+            let activeLang = localStorage.getItem("fengoo_lang") || "hi";
+            let labelText = (activeLang === 'hi') ? 'मेच्योरिटी राशि: ₹' : 'Maturity Amount: ₹';
+            document.getElementById('rdResult').innerText = labelText + (isNaN(maturity) ? 0 : maturity.toFixed(2));
         }
     </script>
 </body>
