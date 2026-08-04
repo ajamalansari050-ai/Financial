@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCYSCD4P57"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RCYSCD4P57');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GST Calculator - Fengoo</title>
+    <title>RD Calculator - Fengoo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <style>
@@ -26,7 +35,7 @@
             color: #94a3b8;
             margin-bottom: 6px;
         }
-        .input-group input, .input-group select {
+        .input-group input {
             width: 100%;
             padding: 12px;
             border-radius: 8px;
@@ -35,7 +44,6 @@
             color: #fff;
             font-size: 1rem;
             box-sizing: border-box;
-            outline: none;
         }
         .calc-btn {
             width: 100%;
@@ -90,30 +98,28 @@
         
         <!-- Page Title Section -->
         <section class="hero-card" style="text-align: center;">
-            <h1 data-en="GST Calculator" data-hi="जीएसटी कैलकुलेटर">जीएसटी कैलकुलेटर</h1>
-            <p data-en="Calculate Goods and Services Tax instantly." data-hi="तुरंत वस्तु और सेवा कर (GST) की गणना करें।">तुरंत वस्तु और सेवा कर (GST) की गणना करें।</p>
+            <h1 data-en="RD Calculator" data-hi="आरडी कैलकुलेटर">आरडी कैलकुलेटर</h1>
+            <p data-en="Calculate your Recurring Deposit maturity amount." data-hi="अपनी रिकरिंग डिपॉजिट मेच्योरिटी राशि की गणना करें।">अपनी रिकरिंग डिपॉजिट मेच्योरिटी राशि की गणना करें।</p>
         </section>
 
-        <!-- GST Tool Box -->
+        <!-- RD Tool Box -->
         <div class="calc-container">
             <div class="input-group">
-                <label data-en="Initial Amount (₹)" data-hi="मूल राशि (₹)">मूल राशि (₹)</label>
-                <input type="number" id="gstAmount" value="10000">
+                <label data-en="Monthly Deposit (₹)" data-hi="मासिक जमा राशि (₹)">मासिक जमा राशि (₹)</label>
+                <input type="number" id="rdMonthly" value="5000">
             </div>
             <div class="input-group">
-                <label data-en="GST Rate (%)" data-hi="जीएसटी दर (%)">जीएसटी दर (%)</label>
-                <select id="gstRate">
-                    <option value="3">3%</option>
-                    <option value="5">5%</option>
-                    <option value="12">12%</option>
-                    <option value="18" selected>18%</option>
-                    <option value="28">28%</option>
-                </select>
+                <label data-en="Interest Rate (% P.A.)" data-hi="ब्याज दर (% वार्षिक)">ब्याज दर (% वार्षिक)</label>
+                <input type="number" id="rdRate" value="6.5">
+            </div>
+            <div class="input-group">
+                <label data-en="Time Period (Months)" data-hi="समय अवधि (महीने)">समय अवधि (महीने)</label>
+                <input type="number" id="rdMonths" value="60">
             </div>
             
-            <button class="calc-btn" onclick="calculateGST()" data-en="Calculate GST" data-hi="GST की गणना करें">GST की गणना करें</button>
+            <button class="calc-btn" onclick="calculateRD()" data-en="Calculate RD" data-hi="RD की गणना करें">RD की गणना करें</button>
             
-            <div class="calc-result" id="gstResult" data-en="Total Amount: ₹0" data-hi="कुल राशि: ₹0">कुल राशि: ₹0</div>
+            <div class="calc-result" id="rdResult" data-en="Maturity Amount: ₹0" data-hi="मेच्योरिटी राशि: ₹0">मेच्योरिटी राशि: ₹0</div>
         </div>
 
         <!-- Back to Calculator Hub -->
@@ -136,16 +142,18 @@
     <!-- Scripts Linking -->
     <script src="../js/language.js"></script>
     <script>
-        function calculateGST() {
-            let p = parseFloat(document.getElementById('gstAmount').value) || 0;
-            let r = parseFloat(document.getElementById('gstRate').value) || 0;
+        function calculateRD() {
+            let p = parseFloat(document.getElementById('rdMonthly').value) || 0;
+            let r = parseFloat(document.getElementById('rdRate').value) || 0;
+            let n = parseInt(document.getElementById('rdMonths').value) || 0;
             
-            let gstAmount = (p * r) / 100;
-            let totalAmount = p + gstAmount;
+            // RD Formula Approximation: Maturity = P * n + P * (n * (n + 1) / 2400) * r
+            let interest = p * (n * (n + 1) / 2400) * r;
+            let maturity = (p * n) + interest;
             
             let activeLang = localStorage.getItem("fengoo_lang") || "hi";
-            let labelText = (activeLang === 'hi') ? 'कुल राशि (GST सहित): ₹' : 'Total Amount (Incl. GST): ₹';
-            document.getElementById('gstResult').innerText = labelText + (isNaN(totalAmount) ? 0 : totalAmount.toFixed(2));
+            let labelText = (activeLang === 'hi') ? 'मेच्योरिटी राशि: ₹' : 'Maturity Amount: ₹';
+            document.getElementById('rdResult').innerText = labelText + (isNaN(maturity) ? 0 : maturity.toFixed(2));
         }
     </script>
 </body>
