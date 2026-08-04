@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCYSCD4P57"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RCYSCD4P57');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Financial Blog - Fengoo</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <!-- Top Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo-container">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <h2>Fengoo<span>.in</span></h2>
+            </a>
+        </div>
+        
+        <!-- Language Switcher Dropdown -->
+        <div class="lang-switcher-container">
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાती</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        
+        <!-- Page Title Section -->
+        <section class="hero-card">
+            <h1 data-en="Daily Financial Article" data-hi="दैनिक वित्तीय लेख">दैनिक वित्तीय लेख</h1>
+            <p data-en="A new expert financial article updates automatically every single day." data-hi="हर दिन एक नया विशेषज्ञ वित्तीय लेख अपने आप अपडेट होता है।">हर दिन एक नया विशेषज्ञ वित्तीय लेख अपने आप अपडेट होता है।</p>
+        </section>
+
+        <!-- Dynamic Daily Article Box -->
+        <div id="daily-article-container" style="margin-top: 20px;">
+            <!-- यहाँ जावास्क्रिप्ट के जरिए रोज नया आर्टिकल अपने आप लोड होगा -->
+        </div>
+
+        <!-- Back to Home -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="../index.html" style="color: #38bdf8; text-decoration: none; font-size: 1rem;" data-en="← Back to Dashboard" data-hi="← डैशबोर्ड पर वापस जाएं">← डैशबोर्ड पर वापस जाएं</a>
+        </div>
+
+    </main>
+
+    <!-- Footer Links -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="../privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
+            <a href="../terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
+            <a href="../disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
+        </div>
+        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
+    </footer>
+
+    <!-- Auto Daily Article Changer Script -->
+    <script>
+        // यहाँ आप अपने जितने चाहें उतने आर्टिकल्स जोड़ सकते हैं
+        const articles = [
+            {
+                titleHi: "आर्टिकल 1: पैसे बचाने के स्मार्ट तरीके",
+                titleEn: "Article 1: Smart Money Saving Tips",
+                descHi: "सीखें कि कैसे अपने मासिक बजट को प्रबंधित करें और व्यावहारिक वित्तीय आदतों के साथ अपनी बचत को आसानी से बढ़ाएं।",
+                descEn: "Learn how to manage your monthly budget and increase your savings effortlessly with practical financial habits."
+            },
+            {
+                titleHi: "आर्टिकल 2: म्यूचुअल फंड और एसआईपी को समझें",
+                titleEn: "Article 2: Understanding Mutual Funds & SIP",
+                descHi: "व्यवस्थित निवेश योजना के माध्यम से म्यूचुअल फंड में अपनी निवेश यात्रा शुरू करने के लिए शुरुआती लोगों के लिए एक संपूर्ण मार्गदर्शिका।",
+                descEn: "A complete beginner's guide to starting your investment journey in mutual funds through systematic investment plans."
+            },
+            {
+                titleHi: "आर्टिकल 3: सबसे अच्छा हेल्थ इंश्योरेंस कैसे चुनें",
+                titleEn: "Article 3: How to Choose the Best Health Insurance",
+                descHi: "इष्टतम कवरेज के साथ सही स्वास्थ्य बीमा पॉलिसी चुनकर अपने परिवार को चिकित्सा आपात स्थितियों से बचाएं।",
+                descEn: "Protect your family from medical emergencies by selecting the right health insurance policy with optimal coverage."
+            }
+            // आप और भी आर्टिकल इस तरह आगे जोड़ सकते हैं...
+        ];
+
+        function loadDailyArticle() {
+            // आज की तारीख के हिसाब से इंडেক्स कैलकुलेट करना (ताकि रोज नया बदले)
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+            const articleIndex = dayOfYear % articles.length;
+            
+            const currentArticle = articles[articleIndex];
+            const lang = localStorage.getItem("fengoo_lang") || "hi";
+
+            const title = lang === "en" ? currentArticle.titleEn : currentArticle.titleHi;
+            const desc = lang === "en" ? currentArticle.descEn : currentArticle.descHi;
+
+            const container = document.getElementById("daily-article-container");
+            container.innerHTML = `
+                <div class="dash-card" style="line-height: 1.8; color: #94a3b8;">
+                    <h2 style="color: #fff; margin-bottom: 10px;">${title}</h2>
+                    <p>${desc}</p>
+                </div>
+            `;
+        }
+
+        // पेज लोड होने पर आर्टिकल दिखाएं
+        document.addEventListener("DOMContentLoaded", () => {
+            loadDailyArticle();
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="../js/script.js"></script>
+    <script src="../js/language.js"></script>
+</body>
+</html>
+
