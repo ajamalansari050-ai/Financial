@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCYSCD4P57"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RCYSCD4P57');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixed Deposit - Fengoo</title>
@@ -17,11 +26,17 @@
             </a>
         </div>
         
-        <!-- Round Language Switcher Button -->
+        <!-- Language Switcher Dropdown -->
         <div class="lang-switcher-container">
-            <button id="langToggleBtn" class="round-lang-btn" onclick="toggleLanguage()">
-                <span id="langText">ENG</span>
-            </button>
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
         </div>
     </header>
 
@@ -40,7 +55,7 @@
             <p data-en="A fixed deposit (FD) is a financial instrument provided by banks and NBFCs which offers investors a higher rate of interest than a regular savings account until the given maturity date." data-hi="फिक्स्ड डिपॉजिट (FD) बैंकों और एनबीएफसी द्वारा प्रदान किया जाने वाला एक वित्तीय साधन है जो निवेशकों को दी गई परिपक्वता तिथि तक नियमित बचत खाते की तुलना में ब्याज की उच्च दर प्रदान करता है।">फिक्स्ड डिपॉजिट (FD) बैंकों और एनबीएफसी द्वारा प्रदान किया जाने वाला एक वित्तीय साधन है जो निवेशकों को दी गई परिपक्वता तिथि तक नियमित बचत खाते की तुलना में ब्याज की उच्च दर प्रदान करता है।</p>
             
             <h3 style="color: #fff; margin: 20px 0 10px 0;" data-en="Key Features" data-hi="मुख्य विशेषताएं">मुख्य विशेषताएं</h3>
-            <p data-en="• Guaranteed returns independent of market fluctuations.<br>• Flexible tenures ranging from 7 days to 10 years.<br>• Higher interest rates for senior citizens." data-hi="• बाजार उतार-चढ़ाव से स्वतंत्र गारंटीड रिटर्न।<br>• 7 दिन से 10 वर्ष तक की लचीلی अवधियां।<br>• वरिष्ठ नागरिकों के लिए उच्च ब्याज दरें।">• बाजार उतार-चढ़ाव से स्वतंत्र गारंटीड रिटर्न।<br>• 7 दिन से 10 वर्ष तक की लचीली अवधियां।<br>• वरिष्ठ नागरिकों के लिए उच्च ब्याज दरें।</p>
+            <p data-en="• Guaranteed returns independent of market fluctuations.<br>• Flexible tenures ranging from 7 days to 10 years.<br>• Higher interest rates for senior citizens." data-hi="• बाजार उतार-चढ़ाव से स्वतंत्र गारंटीड रिटर्न।<br>• 7 दिन से 10 वर्ष तक की लचीली अवधियां।<br>• वरिष्ठ नागरिकों के लिए उच्च ब्याज दरें।">• बाजार उतार-चढ़ाव से स्वतंत्र गारंटीड रिटर्न।<br>• 7 दिन से 10 वर्ष तक की लचीली अवधियां।<br>• वरिष्ठ नागरिकों के लिए उच्च ब्याज दरें।</p>
         </div>
 
         <!-- Back to Banking Hub -->
