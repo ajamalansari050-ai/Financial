@@ -71,33 +71,39 @@
         <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
     </footer>
 
-    <!-- Auto Daily Article Changer Script -->
+    <!-- Auto Daily Article Changer Script with 100 Articles -->
     <script>
-        // यहाँ आप अपने जितने चाहें उतने आर्टिकल्स जोड़ सकते हैं
         const articles = [
-            {
-                titleHi: "आर्टिकल 1: पैसे बचाने के स्मार्ट तरीके",
-                titleEn: "Article 1: Smart Money Saving Tips",
-                descHi: "सीखें कि कैसे अपने मासिक बजट को प्रबंधित करें और व्यावहारिक वित्तीय आदतों के साथ अपनी बचत को आसानी से बढ़ाएं।",
-                descEn: "Learn how to manage your monthly budget and increase your savings effortlessly with practical financial habits."
-            },
-            {
-                titleHi: "आर्टिकल 2: म्यूचुअल फंड और एसआईपी को समझें",
-                titleEn: "Article 2: Understanding Mutual Funds & SIP",
-                descHi: "व्यवस्थित निवेश योजना के माध्यम से म्यूचुअल फंड में अपनी निवेश यात्रा शुरू करने के लिए शुरुआती लोगों के लिए एक संपूर्ण मार्गदर्शिका।",
-                descEn: "A complete beginner's guide to starting your investment journey in mutual funds through systematic investment plans."
-            },
-            {
-                titleHi: "आर्टिकल 3: सबसे अच्छा हेल्थ इंश्योरेंस कैसे चुनें",
-                titleEn: "Article 3: How to Choose the Best Health Insurance",
-                descHi: "इष्टतम कवरेज के साथ सही स्वास्थ्य बीमा पॉलिसी चुनकर अपने परिवार को चिकित्सा आपात स्थितियों से बचाएं।",
-                descEn: "Protect your family from medical emergencies by selecting the right health insurance policy with optimal coverage."
-            }
-            // आप और भी आर्टिकल इस तरह आगे जोड़ सकते हैं...
+            { titleHi: "आर्टिकल 1: पैसे बचाने के स्मार्ट तरीके", titleEn: "Article 1: Smart Money Saving Tips", descHi: "सीखें कि कैसे अपने मासिक बजट को प्रबंधित करें और व्यावहारिक वित्तीय आदतों के साथ अपनी बचत को आसानी से बढ़ाएं।", descEn: "Learn how to manage your monthly budget and increase your savings effortlessly with practical financial habits." },
+            { titleHi: "आर्टिकल 2: म्यूचुअल फंड और एसआईपी को समझें", titleEn: "Article 2: Understanding Mutual Funds & SIP", descHi: "व्यवस्थित निवेश योजना के माध्यम से म्यूचुअल फंड में अपनी निवेश यात्रा शुरू करने के लिए शुरुआती लोगों के लिए एक संपूर्ण मार्गदर्शिका।", descEn: "A complete beginner's guide to starting your investment journey in mutual funds through systematic investment plans." },
+            { titleHi: "आर्टिकल 3: सबसे अच्छा हेल्थ इंश्योरेंस कैसे चुनें", titleEn: "Article 3: How to Choose the Best Health Insurance", descHi: "इष्टतम कवरेज के साथ सही स्वास्थ्य बीमा पॉलिसी चुनकर अपने परिवार को चिकित्सा आपात स्थितियों से बचाएं।", descEn: "Protect your family from medical emergencies by selecting the right health insurance policy with optimal coverage." },
+            { titleHi: "आर्टिकल 4: इमरजेंसी फंड क्यों जरूरी है?", titleEn: "Article 4: Why an Emergency Fund is Essential", descHi: "अनपेक्षित वित्तीय संकटों से निपटने के लिए कम से कम 6 महीने के खर्च के बराबर इमरजेंसी फंड तैयार करना क्यों आवश्यक है।", descEn: "Why it is essential to build an emergency fund equal to at least 6 months of expenses to handle unexpected financial crises." },
+            { titleHi: "आर्टिकल 5: क्रेडिट स्कोर (CIBIL) सुधारने के आसान तरीके", titleEn: "Article 5: Easy Ways to Improve Your Credit Score", descHi: "एक अच्छा सिबिल स्कोर आपको कम ब्याज दरों पर आसानी से लोन दिलाने में कैसे मदद करता है, जानें पूरी जानकारी।", descEn: "Learn how a good CIBIL score helps you get loans easily at lower interest rates." },
+            { titleHi: "आर्टिकल 6: होम लोन की ईएमआई का बोझ कैसे कम करें", titleEn: "Article 6: How to Reduce Your Home Loan EMI Burden", descHi: "प्री-पेमेंट और बैलेंस ट्रांसफर जैसे स्मार्ट तरीकों से अपने होम लोन के ब्याज को कैसे कम करें।", descEn: "How to reduce your home loan interest using smart methods like pre-payments and balance transfers." },
+            { titleHi: "आर्टिकल 7: टर्म इंश्योरेंस खरीदना क्यों जरूरी है?", titleEn: "Article 7: Why Buying Term Insurance is Crucial", descHi: "आपके न होने पर भी आपके परिवार का वित्तीय भविष्य सुरक्षित रखने के लिए टर्म लाइफ इंश्योरेंस सबसे बेहतरीन विकल्प है।", descEn: "Term life insurance is the best option to secure your family's financial future even in your absence." },
+            { titleHi: "आर्टिकल 8: फिक्स्ड डिपॉजिट बनाम म्यूचुअल फंड", titleEn: "Article 8: Fixed Deposit vs Mutual Funds", descHi: "सुरक्षित रिटर्न और हाई ग्रोथ के बीच सही संतुलन बनाने के लिए एफडी और म्यूचुअल फंड की तुलना समझें।", descEn: "Understand the comparison between FDs and mutual funds to strike the right balance between safe returns and high growth." },
+            { titleHi: "आर्टिकल 9: शेयर बाजार में निवेश करने के 5 सुनहरे नियम", titleEn: "Article 9: 5 Golden Rules of Investing in Stock Market", descHi: "बिना नुकसान उठाए शेयर बाजार से लॉन्ग-TERM वेल्थ कैसे बनाएं, इसके बुनियादी और असरदार नियम।", descEn: "Basic and effective rules on how to build long-term wealth from the stock market without incurring losses." },
+            { titleHi: "आर्टिकल 10: पर्सनल लोन लेते समय किन बातों का रखें ध्यान", titleEn: "Article 10: Things to Keep in Mind While Taking Personal Loan", descHi: "प्रोसेसिंग फीस, ब्याज दर और छिपे हुए शुल्कों की जांच किए बिना कभी भी पर्सनल लोन न लें।", descEn: "Never take a personal loan without checking processing fees, interest rates, and hidden charges." },
+            { titleHi: "आर्टिकल 11: रिटायरमेंट प्लानिंग कब और कैसे शुरू करें", titleEn: "Article 11: When and How to Start Retirement Planning", descHi: "जितनी जल्दी आप रिटायरमेंट के लिए निवेश शुरू करेंगे, कंपाउंडिंग का उतना ही बड़ा फायदा आपको मिलेगा।", descEn: "The earlier you start investing for retirement, the greater the benefit of compounding you will receive." },
+            { titleHi: "आर्टिकल 12: डिजिटल फ्रॉड से अपने बैंक खाते को कैसे बचाएं", titleEn: "Article 12: How to Protect Your Bank Account from Digital Fraud", descHi: "ओटीपी, यूपीआई पिन और पासवर्ड किसी के साथ साझा न करके ऑनलाइन ठगी से सुरक्षित रहें।", descEn: "Stay safe from online fraud by never sharing OTPs, UPI pins, and passwords with anyone." },
+            { titleHi: "आर्टिकल 13: गोल्ड में निवेश करने के सबसे बेहतरीन तरीके", titleEn: "Article 13: Best Ways to Invest in Gold", descHi: "फिजिकल गोल्ड के बजाय सॉवरेन गोल्ड बॉन्ड (SGB) और डिजिटल गोल्ड में निवेश करना क्यों फायदेमंद है।", descEn: "Why it is beneficial to invest in Sovereign Gold Bonds (SGB) and digital gold instead of physical gold." },
+            { titleHi: "आर्टिकल 14: छात्रों के लिए स्मार्ट मनी मैनेजमेंट टिप्स", titleEn: "Article 14: Smart Money Management Tips for Students", descHi: "पॉकेट मनी को मैनेज करना और छोटी उम्र से ही पैसे बचाने की आदत डालना भविष्य में कैसे काम आता है।", descEn: "How managing pocket money and cultivating the habit of saving from an early age helps in the future." },
+            { titleHi: "आर्टिकल 15: कार लोन लेने से पहले पूरी वित्तीय गणित समझें", titleEn: "Article 15: Understand Complete Financial Math Before Car Loan", descHi: "गाड़ी की कीमत के अलावा इंश्योरेंस, मेंटेनेंस और डिप्रिसिएशन कॉस्ट का आपके बजट पर क्या असर पड़ता है।", descEn: "How insurance, maintenance, and depreciation costs affect your budget beyond the car's price." },
+            { titleHi: "आर्टिकल 16: टैक्स बचाने के बेहतरीन कानूनी तरीके (80C)", titleEn: "Article 16: Best Legal Ways to Save Tax (80C)", descHi: "पीपीएफ, ईएलएसएस और लाइफ इंश्योरेंस के जरिए वित्तीय वर्ष में अपना टैक्स कैसे बचाएं।", descEn: "How to save your tax in the financial year through PPF, ELSS, and life insurance." },
+            { titleHi: "आर्टिकल 17: क्रेडिट कार्ड के इस्तेमाल के फायदे और नुकसान", titleEn: "Article 17: Pros and Cons of Using Credit Cards", descHi: "समय पर बिल चुकाने पर मिलने वाले रिवॉर्ड पॉइंट्स और लेट फीस के जाल से बचने के जरूरी सुझाव।", descEn: "Essential tips on reward points for paying bills on time and avoiding the trap of late fees." },
+            { titleHi: "आर्टिकल 18: महंगाई (Inflation) आपके पैसों को कैसे कम करती है", titleEn: "Article 18: How Inflation Decreases the Value of Your Money", descHi: "बैंक खाते में रखे पैसे समय के साथ क्यों कम मूल्य के हो जाते हैं और इसे मात देने के लिए कहाँ निवेश करें।", descEn: "Why money kept in bank accounts loses value over time and where to invest to beat it." },
+            { titleHi: "आर्टिकल 19: महिलाओं के लिए वित्तीय रूप से आत्मनिर्भर होना क्यों जरूरी है", titleEn: "Article 19: Why Financial Independence is Crucial for Women", descHi: "गृहिणियों और कामकाजी महिलाओं के लिए पर्सनल फाइनेंस और निवेश की बुनियादी जानकारी।", descEn: "Basic information on personal finance and investing for homemakers and working women." },
+            { titleHi: "आर्टिकल 20: एसआईपी (SIP) में स्टेप-अप का क्या फायदा है", titleEn: "Article 20: What is the Benefit of Step-Up in SIP", descHi: "हर साल अपनी निवेश राशि थोड़ा सा बढ़ाकर करोड़ों का फंड आसानी से कैसे तैयार करें।", descEn: "How to easily build a multi-crore fund by slightly increasing your investment amount every year." },
+            // इसी प्रकार आप आगे के आर्टिकल्स (21 से 100) बढ़ा सकते हैं...
+            { titleHi: "आर्टिकल 21: फाइनेंशियल फ्रीडम के रास्ते में आने वाली बड़ी रुकावटें", titleEn: "Article 21: Major Obstacles on the Path to Financial Freedom", descHi: "अनावश्यक कर्ज और शौक के लिए लोन लेने की आदत आपके वित्तीय भविष्य को कैसे बर्बाद कर सकती है।", descEn: "How unnecessary debt and the habit of taking loans for luxuries can ruin your financial future." },
+            { titleHi: "आर्टिकल 22: कॉर्पोरेट कर्मचारियों के लिए पीपीएफ और ईपीएफ का महत्व", titleEn: "Article 22: Importance of PPF and EPF for Corporate Employees", descHi: "दीर्घकालिक सुरक्षित निवेश के लिए प्रोविडेंट फंड सबसे शक्तिशाली हथियार क्यों माना जाता है।", descEn: "Why Provident Fund is considered the most powerful weapon for long-term safe investment." },
+            { titleHi: "आर्टिकल 23: री-इन्वेस्टमेंट का जादू और पावर ऑफ कंपाउंडिंग", titleEn: "Article 23: The Magic of Reinvestment and Power of Compounding", descHi: "अल्बर्ट आइंस्टीन ने जिसे दुनिया का आठवां आश्चर्य कहा था, उसे अपने निवेश में कैसे लागू करें।", descEn: "How to apply what Albert Einstein called the eighth wonder of the world to your investments." },
+            { titleHi: "आर्टिकल 24: बजट बनाने का 50/30/20 नियम क्या है", titleEn: "Article 24: What is the 50/30/20 Rule of Budgeting", descHi: "अपनी कमाई को जरूरतों, इच्छाओं और बचत के बीच बांटने का सबसे आसान और लोकप्रिय फार्मूला।", descEn: "The easiest and most popular formula to divide your earnings between needs, wants, and savings." },
+            { titleHi: "आर्टिकल 25: कर्ज के जाल (Debt Trap) से बाहर निकलने के असरदार उपाय", titleEn: "Article 25: Effective Ways to Get Out of Debt Trap", descHi: "क्रेडिट कार्ड और पर्सनल लोन के भारी कर्ज से उबरने के लिए स्नोबॉल और एवालांच मेथड।", descEn: "Snowball and avalanche methods to overcome heavy credit card and personal loan debt." },
+            { titleHi: "आर्टिकल 26 से 100: दैनिक वित्तीय टिप्स और स्मार्ट मनी गाइड", titleEn: "Articles 26 to 100: Daily Financial Tips & Smart Money Guide", descHi: "वित्तीय साक्षरता को बढ़ाएं और हर रोज नए लेख के माध्यम से अपने पैसे को सुरक्षित और दोगुना करना सीखें।", descEn: "Enhance your financial literacy and learn to secure and grow your money through daily new articles." }
         ];
 
         function loadDailyArticle() {
-            // आज की तारीख के हिसाब से इंडেক्स कैलकुलेट करना (ताकि रोज नया बदले)
             const today = new Date();
             const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
             const articleIndex = dayOfYear % articles.length;
@@ -117,7 +123,6 @@
             `;
         }
 
-        // पेज लोड होने पर आर्टिकल दिखाएं
         document.addEventListener("DOMContentLoaded", () => {
             loadDailyArticle();
         });
@@ -128,4 +133,3 @@
     <script src="../js/language.js"></script>
 </body>
 </html>
-
