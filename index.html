@@ -2,14 +2,14 @@
 <html lang="hi">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VWPVJTNM91"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCYSCD4P57"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-VWPVJTNM91');
-</script>
+      gtag('config', 'G-RCYSCD4P57');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fengoo - Financial Dashboard & Calculators</title>
@@ -26,39 +26,42 @@
             </a>
         </div>
         
-        <div class="lang-switcher-container">
-    <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
-        <option value="hi">हिंदी</option>
-        <option value="en">English</option>
-        <option value="bn">বাংলা</option>
-        <option value="mr">मराठी</option>
-        <option value="gu">ગુજરાતી</option>
-        <option value="ta">தமிழ்</option>
-        <option value="te">తెలుగు</option>
-    </select>
+        <!-- Search Bar Added -->
+        <div class="search-container" style="flex-grow: 1; max-width: 400px; margin: 0 20px;">
+            <input type="text" id="siteSearch" placeholder="Search calculators, loans, insurance..." data-en="Search calculators, loans, insurance..." data-hi="कैलकुलेटर, लोन, बीमा खोजें..." style="width: 100%; padding: 7px 14px; background: #1e293b; color: #fff; border: 1px solid #334155; border-radius: 8px; outline: none; font-size: 0.9rem;">
         </div>
         
+        <div class="lang-switcher-container">
+            <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">
+                <option value="hi">हिंदी</option>
+                <option value="en">English</option>
+                <option value="bn">বাংলা</option>
+                <option value="mr">मराठी</option>
+                <option value="gu">ગુજરાતી</option>
+                <option value="ta">தமிழ்</option>
+                <option value="te">తెలుగు</option>
+            </select>
+        </div>
     </header>
 
-  
-</script>
     <!-- होम स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->
-<div class="home-market-section" style="background: #0f172a; padding: 10px 15px; border-bottom: 1px solid #334155;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-        
-        <!-- BSE नॉन-क्लिकेबल लाइव टिकर -->
-        <div id="bse-ticker" class="ticker-item green" style="display: inline-flex; align-items: center; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; cursor: default;">
-            <b>BSE:</b>&nbsp;<span id="bse-price">₹3,450.00</span>&nbsp;<span id="bse-change" style="color: #4ade80;">(+1.80% ▲)</span>
-        </div>
+    <div class="home-market-section" style="background: #0f172a; padding: 10px 15px; border-bottom: 1px solid #334155;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+            
+            <!-- BSE नॉन-क्लिकेबल लाइव टिकर -->
+            <div id="bse-ticker" class="ticker-item green" style="display: inline-flex; align-items: center; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; cursor: default;">
+                <b>BSE:</b>&nbsp;<span id="bse-price">₹3,450.00</span>&nbsp;<span id="bse-change" style="color: #4ade80;">(+1.80% ▲)</span>
+            </div>
 
-        <!-- "सभी शेयर" देखने के लिए क्लिकेबल बटन -->
-        <div>
-            <a href="shares/all-shares.html" style="background: #38bdf8; color: #0f172a; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;" data-en="All Shares →" data-hi="सभी शेयर →">सभी शेयर →</a>
-        </div>
+            <!-- "सभी शेयर" देखने के लिए क्लिकेबल बटन -->
+            <div>
+                <a href="shares/all-shares.html" style="background: #38bdf8; color: #0f172a; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;" data-en="All Shares →" data-hi="सभी शेयर →">सभी शेयर →</a>
+            </div>
 
+        </div>
     </div>
-</div>
     
+    <main>
         <!-- Hero Section -->
         <section class="hero-card">
             <h1 data-en="Smart Financial Dashboard" data-hi="स्मार्ट फाइनेंशियल डैशबोर्ड">स्मार्ट फाइनेंशियल</h1>
@@ -117,24 +120,22 @@
             </div>
 
             <!-- Blog Card -->
-<div class="dash-card">
-    <div class="card-icon">📝</div>
-    <h3 data-en="Financial Blog" data-hi="फाइनेंस ब्लॉग">फाइनेंस ब्लॉग</h3>
-    <p data-en="Read expert articles on saving & growing money." data-hi="पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।">पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।</p>
-    <a href="blog/index.html" class="btn" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-</div>
+            <div class="dash-card">
+                <div class="card-icon">📝</div>
+                <h3 data-en="Financial Blog" data-hi="फाइनेंस ब्लॉग">फाइनेंस ब्लॉग</h3>
+                <p data-en="Read expert articles on saving & growing money." data-hi="पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।">पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।</p>
+                <a href="blog/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
+            </div>
             
-        
-
-           <div class="dash-card">
-    <div class="card-icon">💱</div>
-    <h3 data-en="Global Currency Converter" data-hi="ग्लोबल करेंसी कन्वर्टर">ग्लोबल करेंसी कन्वर्टर</h3>
-    <p data-en="Convert and compare currencies across 197+ countries instantly." data-hi="197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।">197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।</p>
-    <a href="currency/currency-converter.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
-           </div>
+            <!-- Global Currency Converter -->
+            <div class="dash-card">
+                <div class="card-icon">💱</div>
+                <h3 data-en="Global Currency Converter" data-hi="ग्लोबल करेंसी कन्वर्टर">ग्लोबल करेंसी कन्वर्टर</h3>
+                <p data-en="Convert and compare currencies across 197+ countries instantly." data-hi="197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।">197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।</p>
+                <a href="currency/currency-converter.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
+            </div>
             
         </div>
-
     </main>
 
     <!-- Footer Links -->
@@ -142,9 +143,8 @@
         <div class="footer-links">
             <a href="privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
             <a href="terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
-           <a href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a>
-        <a href="contact.html" style="color: #38bdf8; text-decoration: none;" data-en="Contact Us" data-hi="संपर्क करें">संपर्क करें</a>
-            
+            <a href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a> |
+            <a href="contact.html" style="color: #38bdf8; text-decoration: none;" data-en="Contact Us" data-hi="संपर्क करें">संपर्क करें</a>
         </div>
         <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
     </footer>
@@ -153,4 +153,5 @@
     <script src="js/script.js"></script>
     <script src="js/language.js"></script>
 </body>
-</html>
+                    </html>
+                    
