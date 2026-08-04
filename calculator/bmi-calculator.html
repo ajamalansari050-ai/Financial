@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCYSCD4P57"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RCYSCD4P57');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator - Fengoo</title>
@@ -77,7 +86,7 @@
                 <option value="en">English</option>
                 <option value="bn">বাংলা</option>
                 <option value="mr">मराठी</option>
-                <option value="gu">ગુજરાती</option>
+                <option value="gu">ગુજરાતી</option>
                 <option value="ta">தமிழ்</option>
                 <option value="te">తెలుగు</option>
             </select>
@@ -148,7 +157,7 @@
                 if (bmi < 18.5) status = "कम वजन (Underweight)";
                 else if (bmi >= 18.5 && bmi < 24.9) status = "सामान्य (Normal)";
                 else if (bmi >= 25 && bmi < 29.9) status = "अधिक वजन (Overweight)";
-                else status = "मोपापन (Obese)";
+                else status = "मोटापा (Obese)";
                 
                 document.getElementById('bmiResult').innerText = `BMI: ${bmi.toFixed(2)} (${status})`;
             } else {
