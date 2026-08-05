@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", () => {
     console.log("Fengoo.in dashboard initialized successfully.");
 });
+
 // यह कोड ऑटोमैटिक सभी 20 आर्टिकल्स को जनरेट और अपडेट करेगा
 document.addEventListener("DOMContentLoaded", function() {
     let container = document.getElementById("articlesGridContainer");
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let todayDate = new Date().toLocaleDateString('hi-IN', { year: 'numeric', month: 'long', day: 'numeric' });
     
-    // 20 आर्टिकल्स की सूची (आप चाहें तो इनके नाम बदल सकते हैं)
+    // 20 आर्टिकल्स की सूची
     let articlesList = [
         { title: "पैसों की बचत और बजट बनाने के नए तरीके", desc: "अपने मासिक खर्चों को नियंत्रित करें और भविष्य को सुरक्षित बनाएं।" },
         { title: "शुरुआती निवेशकों के लिए स्मार्ट इन्वेस्टमेंट गाइड", desc: "म्यूचुअल फंड, SIP और शेयर बाजार में निवेश की शुरुआत करें।" },
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { title: "लोन चुकाने की 'स्नोबॉल' और 'एवलांच' विधि", desc: "कर्ज से जल्दी बाहर निकलने के सबसे असरदार तरीके।" },
         { title: "रियल एस्टेट में निवेश करने से पहले की बातें", desc: "प्रॉपर्टी खरीदते समय कानूनी और वित्तीय जांच कैसे करें।" },
         { title: "बच्चों की उच्च शिक्षा के लिए फंड कैसे जोड़ें", desc: "चाइल्ड एजुकेशन प्लान और लॉन्ग-थर्म निवेश रणनीतियाँ।" },
-        { title: "क्रिप्टोकरंसी और ब्लॉकचेन की बुनियादी जानकारी", desc: "डिजिटल एसेट्स में निवेश के जोखिम और अवसर।" },
+        { title: "क्रिप्टोकरेंसी और ब्लॉकचेन की बुनियादी जानकारी", desc: "डिजिटल एसेट्स में निवेश के जोखिम और अवसर।" },
         { title: "मुद्रास्फीति (Inflation) से अपने पैसों को कैसे बचाएं", desc: "महंगाई के दौर में अपनी वेल्थ को घटने से रोकने के उपाय।" },
         { title: "फ्रीलांसर्स के लिए टैक्स और फाइनेंस मैनेजमेंट", desc: "बिना सैलरी वाले प्रोफेशनल्स के लिए पैसों का सही प्रबंधन।" },
         { title: "स्मार्ट शॉपिंग और डिस्काउंट्स का सही इस्तेमाल", desc: "खरीदारी करते समय पैसे बचाने के छोटे और बड़े ट्रिक्स।" },
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     container.innerHTML = htmlOutput;
 });
+
 // Real Live Market Data Fetching Script from Public API
 async function fetchRealLiveMarketData() {
     const priceElement = document.getElementById('bse-price');
@@ -61,8 +63,6 @@ async function fetchRealLiveMarketData() {
     const tickerItem = document.getElementById('bse-ticker');
 
     try {
-        // असली लाइव डेटा प्राप्त करने के लिए पब्लिक फाइनेंशियल एपीआई का उपयोग
-        // (यह उदाहरण Yahoo Finance / Global Financial APIs के डेटा स्ट्रक्चर पर आधारित है)
         let response = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EBSESN?interval=1m');
         let data = await response.json();
         
@@ -70,7 +70,6 @@ async function fetchRealLiveMarketData() {
         let currentPrice = meta.regularMarketPrice;
         let previousClose = meta.chartPreviousClose || meta.previousClose;
         
-        // बदलाव और प्रतिशत निकालना
         let change = currentPrice - previousClose;
         let percentChange = ((change / previousClose) * 100).toFixed(2);
         
@@ -92,7 +91,6 @@ async function fetchRealLiveMarketData() {
     } catch (error) {
         console.error('Live market data fetch error, using official closing fallback:', error);
         
-        // यदि इंटरनेट या एपीआई से कनेक्ट करने में कोई दिक्कत आए, तो आधिकारिक बंद भाव दिखेगा
         if (priceElement && changeElement) {
             priceElement.innerText = '₹78,094.64';
             changeElement.innerText = '(+0.21% ▲)';
