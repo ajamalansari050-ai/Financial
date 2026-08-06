@@ -1,181 +1,150 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCYSCD4P57"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<!DOCTYPE html>  <html lang="hi">  
+<head>  
+    <!-- Google tag (gtag.js) -->  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCYSCD4P57"></script>  
+    <script>  
+      window.dataLayer = window.dataLayer || [];  
+      function gtag(){dataLayer.push(arguments);}  
+      gtag('js', new Date());  gtag('config', 'G-RCYSCD4P57');  
+</script>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Fengoo - Financial Dashboard & Calculators</title>  
+<link rel="stylesheet" href="css/style.css">  
+<link rel="stylesheet" href="css/responsive.css">
 
-      gtag('config', 'G-RCYSCD4P57');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fengoo - Financial Dashboard & Calculators</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-    <!-- Premium Header Start -->
-<header class="top-header">
+</head>  
+<body>  <!-- Top Dashboard Header -->  
+<header class="dashboard-header">  
+    <div class="logo-container">  
+        <a href="index.html" style="text-decoration: none; color: inherit;">  
+            <h2>Fengoo<span>.in</span></h2>  
+        </a>  
+    </div>  
+      
+    <div class="lang-switcher-container">  
+        <select id="languageSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #38bdf8; border: 1px solid #334155; padding: 6px 12px; border-radius: 8px; font-weight: bold; cursor: pointer; outline: none; font-size: 0.9rem;">  
+            <option value="hi">हिंदी</option>  
+            <option value="en">English</option>  
+            <option value="bn">বাংলা</option>  
+            <option value="mr">मराठी</option>  
+            <option value="gu">ગુજરાતી</option>  
+            <option value="ta">தமிழ்</option>  
+            <option value="te">తెలుగు</option>  
+        </select>  
+    </div>  
+</header>  
 
-<div class="container">
+<!-- होम स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->  
+<div class="home-market-section" style="background: #0f172a; padding: 10px 15px; border-bottom: 1px solid #334155;">  
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">  
+          
+        <!-- BSE नॉन-क्लिकेबल लाइव टिकर -->  
+        <div id="bse-ticker" class="ticker-item green" style="display: inline-flex; align-items: center; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; cursor: default;">  
+            <b>BSE:</b>&nbsp;<span id="bse-price">₹3,450.00</span>&nbsp;<span id="bse-change" style="color: #4ade80;">(+1.80% ▲)</span>  
+        </div>  
 
-<a href="index.html" class="logo">
+        <!-- "सभी शेयर" देखने के लिए क्लिकेबल बटन -->  
+        <div>  
+              
+        <a href="shares/all-shares.html" style="background: #38bdf8; color: #0f172a; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;" data-en="All Shares →" data-hi="सभी शेयर →">सभी शेयर →</a>  
+          
+        </div>  
 
-<img src="assets/images/logo.png" alt="Fengoo Logo">
+    </div>  
+</div>  
+  
+<main>  
+    <!-- Hero Section -->  
+    <section class="hero-card">  
+        <h1 data-en="Smart Financial Dashboard" data-hi="स्मार्ट फाइनेंशियल डैशबोर्ड">स्मार्ट फाइनेंशियल</h1>  
+        <p data-en="Manage loans, investments, insurance, and calculate finances effortlessly." data-hi="लोन, निवेश, बीमा प्रबंधित करें और आसानी से अपने वित्त की गणना करें।">लोन, निवेश, बीमा प्रबंधित करें और आसानी से अपने वित्त की गणना करें।</p>  
+    </section>  
 
-<span>Fengoo.in</span>
+    <!-- Categories Grid linking to respective folders -->  
+    <div class="dashboard-grid">  
+          
+        <!-- Calculators -->  
+        <div class="dash-card">  
+            <div class="card-icon">🧮</div>  
+            <h3 data-en="Calculators" data-hi="कैलकुलेटर">कैलकुलेटर</h3>  
+            <p data-en="EMI, SIP, FD, GST & more financial tools." data-hi="EMI, SIP, FD, GST और अन्य वित्तीय टूल।">EMI, SIP, FD, GST और अन्य वित्तीय टूल।</p>  
+            <a href="calculator/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>  
+        </div>  
 
-</a>
+        <!-- Loans -->  
+        <div class="dash-card">  
+            <div class="card-icon">💸</div>  
+            <h3 data-en="Loans" data-hi="लोन (ऋण)">लोन (ऋण)</h3>  
+            <p data-en="Personal, Home, Car & Education loans." data-hi="पर्सनल, होम, कार और शिक्षा लोन।">पर्सनल, होम, कार और शिक्षा लोन।</p>  
+            <a href="loan/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>  
+        </div>  
 
-<nav>
+        <!-- Insurance -->  
+        <div class="dash-card">  
+            <div class="card-icon">🛡️</div>  
+            <h3 data-en="Insurance" data-hi="बीमा (Insurance)">बीमा (Insurance)</h3>  
+            <p data-en="Health, Life, Car & Bike insurance plans." data-hi="हेल्थ, लाइफ, कार और बाइक बीमा योजनाएं।">हेल्थ, लाइफ, कार और बाइक बीमा योजनाएं।</p>  
+            <a href="insurance/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>  
+        </div>  
 
-<ul>
+        <!-- Investment -->  
+        <div class="dash-card">  
+            <div class="card-icon">📈</div>  
+            <h3 data-en="Investment" data-hi="निवेश (Investment)">निवेश (Investment)</h3>  
+            <p data-en="Mutual funds, Stocks, Gold & Crypto insights." data-hi="म्यूचुअल फंड, शेयर बाजार, गोल्ड और क्रिप्टो।">म्यूचुअल फंड, शेयर बाजार, गोल्ड और क्रिप्टो।</p>  
+            <a href="investment/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>  
+        </div>  
 
-<li><a href="index.html">Home</a></li>
+        <!-- Banking -->  
+        <div class="dash-card">  
+            <div class="card-icon">🏦</div>  
+            <h3 data-en="Banking" data-hi="बैंकिंग">बैंकिंग</h3>  
+            <p data-en="Savings, Current accounts & Fixed deposits." data-hi="सेविंग्स, करंट अकाउंट और फिक्स्ड डिपॉजिट।">सेविंग्स, करंट अकाउंट और फिक्स्ड डिपॉजिट।</p>  
+            <a href="banking/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>  
+        </div>  
 
-<li><a href="loan/index.html">Loans</a></li>
+        <!-- Credit Card -->  
+        <div class="dash-card">  
+            <div class="card-icon">💳</div>  
+            <h3 data-en="Credit Cards" data-hi="क्रेडिट कार्ड">क्रेडिट कार्ड</h3>  
+            <p data-en="Find and apply for the best credit cards." data-hi="सर्वश्रेष्ठ क्रेडिट कार्ड ढूंढें और आवेदन करें।">सर्वश्रेष्ठ क्रेडिट कार्ड ढूंढें और आवेदन करें।</p>  
+            <a href="credit-card/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>  
+        </div>  
 
-<li><a href="insurance/index.html">Insurance</a></li>
+        <!-- Blog Card -->  
+        <div class="dash-card">  
+            <div class="card-icon">📝</div>  
+            <h3 data-en="Financial Blog" data-hi="फाइनेंस ब्लॉग">फाइनेंस ब्लॉग</h3>  
+            <p data-en="Read expert articles on saving & growing money." data-hi="पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।">पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।</p>  
+            <a href="blog/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>  
+        </div>  
+          
+        <!-- Global Currency Converter -->  
+        <div class="dash-card">  
+            <div class="card-icon">💱</div>  
+            <h3 data-en="Global Currency Converter" data-hi="ग्लोबल करेंसी कन्वर्टर">ग्लोबल करेंसी कन्वर्टर</h3>  
+            <p data-en="Convert and compare currencies across 197+ countries instantly." data-hi="197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।">197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।</p>  
+            <a href="currency/currency-converter.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>  
+        </div>  
+          
+    </div>  
+</main>  
 
-<li><a href="investment/index.html">Investment</a></li>
+<!-- Footer Links -->  
+<footer class="dashboard-footer">  
+    <div class="footer-links">  
+        <a href="privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |  
+        <a href="terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |  
+        <a href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a> |  
+        <a href="contact.html" style="color: #38bdf8; text-decoration: none;" data-en="Contact Us" data-hi="संपर्क करें">संपर्क करें</a>  
+    </div>  
+    <p>&copy; 2026 Fengoo.in. All rights reserved.</p>  
+</footer>  
 
-<li><a href="calculator/index.html">Calculators</a></li>
+<!-- Scripts -->  
+<script src="js/script.js"></script>  
+<script src="js/language.js"></script>
 
-<li><a href="blog/index.html">Blog</a></li>
-
-<li><a href="contact.html">Contact</a></li>
-
-</ul>
-
-</nav>
-
-<div class="header-btn">
-
-<a href="loan/index.html" class="apply-btn">
-
-Apply Now
-
-</a>
-
-</div>
-
-</div>
-
-</header>
-<!-- Premium Header End -->
-    
-    <!-- होम स्क्रीन / होमपेज का शेयर मार्केट टिकर सेक्शन -->
-    <div class="home-market-section" style="background: #0f172a; padding: 10px 15px; border-bottom: 1px solid #334155;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-            
-            <!-- BSE नॉन-क्लिकेबल लाइव टिकर -->
-            <div id="bse-ticker" class="ticker-item green" style="display: inline-flex; align-items: center; color: #fff; background: #1e293b; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; cursor: default;">
-                <b>BSE:</b>&nbsp;<span id="bse-price">₹3,450.00</span>&nbsp;<span id="bse-change" style="color: #4ade80;">(+1.80% ▲)</span>
-            </div>
-
-            <!-- "सभी शेयर" देखने के लिए क्लिकेबल बटन -->
-            <div>
-                
-            <a href="shares/all-shares.html" style="background: #38bdf8; color: #0f172a; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;" data-en="All Shares →" data-hi="सभी शेयर →">सभी शेयर →</a>
-            
-            </div>
-
-        </div>
-    </div>
-    
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-card">
-            <h1 data-en="Smart Financial Dashboard" data-hi="स्मार्ट फाइनेंशियल डैशबोर्ड">स्मार्ट फाइनेंशियल</h1>
-            <p data-en="Manage loans, investments, insurance, and calculate finances effortlessly." data-hi="लोन, निवेश, बीमा प्रबंधित करें और आसानी से अपने वित्त की गणना करें।">लोन, निवेश, बीमा प्रबंधित करें और आसानी से अपने वित्त की गणना करें।</p>
-        </section>
-
-        <!-- Categories Grid linking to respective folders -->
-        <div class="dashboard-grid">
-            
-            <!-- Calculators -->
-            <div class="dash-card">
-                <div class="card-icon">🧮</div>
-                <h3 data-en="Calculators" data-hi="कैलकुलेटर">कैलकुलेटर</h3>
-                <p data-en="EMI, SIP, FD, GST & more financial tools." data-hi="EMI, SIP, FD, GST और अन्य वित्तीय टूल।">EMI, SIP, FD, GST और अन्य वित्तीय टूल।</p>
-                <a href="calculator/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-            </div>
-
-            <!-- Loans -->
-            <div class="dash-card">
-                <div class="card-icon">💸</div>
-                <h3 data-en="Loans" data-hi="लोन (ऋण)">लोन (ऋण)</h3>
-                <p data-en="Personal, Home, Car & Education loans." data-hi="पर्सनल, होम, कार और शिक्षा लोन।">पर्सनल, होम, कार और शिक्षा लोन।</p>
-                <a href="loan/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-            </div>
-
-            <!-- Insurance -->
-            <div class="dash-card">
-                <div class="card-icon">🛡️</div>
-                <h3 data-en="Insurance" data-hi="बीमा (Insurance)">बीमा (Insurance)</h3>
-                <p data-en="Health, Life, Car & Bike insurance plans." data-hi="हेल्थ, लाइफ, कार और बाइक बीमा योजनाएं।">हेल्थ, लाइफ, कार और बाइक बीमा योजनाएं।</p>
-                <a href="insurance/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-            </div>
-
-            <!-- Investment -->
-            <div class="dash-card">
-                <div class="card-icon">📈</div>
-                <h3 data-en="Investment" data-hi="निवेश (Investment)">निवेश (Investment)</h3>
-                <p data-en="Mutual funds, Stocks, Gold & Crypto insights." data-hi="म्यूचुअल फंड, शेयर बाजार, गोल्ड और क्रिप्टो।">म्यूचुअल फंड, शेयर बाजार, गोल्ड और क्रिप्टो।</p>
-                <a href="investment/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-            </div>
-
-            <!-- Banking -->
-            <div class="dash-card">
-                <div class="card-icon">🏦</div>
-                <h3 data-en="Banking" data-hi="बैंकिंग">बैंकिंग</h3>
-                <p data-en="Savings, Current accounts & Fixed deposits." data-hi="सेविंग्स, करंट अकाउंट और फिक्स्ड डिपॉजिट।">सेविंग्स, करंट अकाउंट और फिक्स्ड डिपॉजिट।</p>
-                <a href="banking/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-            </div>
-
-            <!-- Credit Card -->
-            <div class="dash-card">
-                <div class="card-icon">💳</div>
-                <h3 data-en="Credit Cards" data-hi="क्रेडिट कार्ड">क्रेडिट कार्ड</h3>
-                <p data-en="Find and apply for the best credit cards." data-hi="सर्वश्रेष्ठ क्रेडिट कार्ड ढूंढें और आवेदन करें।">सर्वश्रेष्ठ क्रेडिट कार्ड ढूंढें और आवेदन करें।</p>
-                <a href="credit-card/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-            </div>
-
-            <!-- Blog Card -->
-            <div class="dash-card">
-                <div class="card-icon">📝</div>
-                <h3 data-en="Financial Blog" data-hi="फाइनेंस ब्लॉग">फाइनेंस ब्लॉग</h3>
-                <p data-en="Read expert articles on saving & growing money." data-hi="पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।">पैसों की बचत और वृद्धि पर विशेषज्ञों के लेख पढ़ें।</p>
-                <a href="blog/index.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Explore" data-hi="देखें">देखें</a>
-            </div>
-            
-            <!-- Global Currency Converter -->
-            <div class="dash-card">
-                <div class="card-icon">💱</div>
-                <h3 data-en="Global Currency Converter" data-hi="ग्लोबल करेंसी कन्वर्टर">ग्लोबल करेंसी कन्वर्टर</h3>
-                <p data-en="Convert and compare currencies across 197+ countries instantly." data-hi="197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।">197+ देशों की मुद्राओं की तुरंत तुलना करें और बदलें।</p>
-                <a href="currency/currency-converter.html" class="btn" style="margin-top: 15px; display:inline-block; padding: 8px 15px; background:#38bdf8; color:#0f172a; text-decoration:none; border-radius:8px; font-weight:bold; font-size:0.9rem;" data-en="Read More" data-hi="और पढ़ें">और पढ़ें</a>
-            </div>
-            
-        </div>
-    </main>
-
-    <!-- Footer Links -->
-    <footer class="dashboard-footer">
-        <div class="footer-links">
-            <a href="privacy-policy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">गोपनीयता नीति</a> |
-            <a href="terms-and-conditions.html" data-en="Terms" data-hi="नियम व शर्तें">नियम व शर्तें</a> |
-            <a href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">अस्वीकरण</a> |
-            <a href="contact.html" style="color: #38bdf8; text-decoration: none;" data-en="Contact Us" data-hi="संपर्क करें">संपर्क करें</a>
-        </div>
-        <p>&copy; 2026 Fengoo.in. All rights reserved.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/script.js"></script>
-    <script src="js/language.js"></script>
-</body>
+</body>  
 </html>
